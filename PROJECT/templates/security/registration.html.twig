@@ -1,0 +1,15 @@
+{% extends 'layout/base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+    <div class="sign-in">
+        <h1 class="h3 mb-3 font-weight-normal">Sign up</h1>
+        <div class="input-sign-up">
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <button type="submit" class="btn">{{ button_label|default('Save') }}</button>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

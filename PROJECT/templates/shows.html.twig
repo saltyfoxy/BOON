@@ -1,0 +1,32 @@
+{% extends 'layout/base.html.twig' %}
+{% block body %}
+    {% for message in app.flashes('notice') %}
+        <div class="flash-notice">
+            {{ message }}
+        </div>
+    {% endfor %}
+    <div class="column-shows">
+        <div class="row-shows">
+
+            {% for showw in shows %}
+                <div id="show-{{ showw.id }}"
+                     class="card-show">
+                    <a style="text-decoration:none" href="{{ path('detail_show',{ 'id':showw.id}) }}">
+                        <h2> {{ showw.name }} </h2></a>
+                    <a style="text-decoration:none" href="{{ path('detail_show',{ 'id':showw.id}) }}">
+                        <img src="{{ showw.picture }}" alt="imageCard" class="img-card-shows"></a>
+                    <div class="price-cart">
+                        <h3>{{ showw.price }}</h3>
+                        {% if app.user %}
+                            <div class="cart-div" id="{{ showw.id }}">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                        {% else %}
+                        {% endif %}
+
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

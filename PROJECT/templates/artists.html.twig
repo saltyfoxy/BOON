@@ -1,0 +1,18 @@
+{% extends 'layout/base.html.twig' %}
+{% block body %}
+    <div class="column-shows">
+        <div class="row-shows">
+
+            {% for artist in artists %}
+                <div id="artist-{{ artist.id }}"
+                     class="card-artists">
+                    { <a style="text-decoration:none" href="{{ path('detail_artist',{ 'id':artist.id}) }}">
+                    <h2> {{ artist.name }} </h2></a>
+                     <a  style="text-decoration:none" href="{{ path('detail_artist',{ 'id':artist.id}) }}">
+                    <img src="{{ artist.picture }}" alt="imageCard" class="img-card-shows"></a>
+                    <h3> {{ artist.job }}</h3>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

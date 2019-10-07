@@ -1,0 +1,17 @@
+{% extends 'layout/base.html.twig' %}
+{% block body %}
+
+    {% if app.user %}
+        <h1 class="title-profile">Bonjour {{ app.user.name }} !</h1>
+        <div class="title-shows-profile">
+            <h2>Vos commandes de spectacles</h2>
+        </div>
+        <div class="shows-profile">
+            <p>Rien à afficher</p>
+            <a href="/shows"><h1>Faites vos premières commandes en cliquant sur ce texte</h1></a>
+        </div>
+    {% else %}
+        <a href="/login"><h1 class="title-profile">Cette page n'est pas accessible pour vous, veuillez vous connecter !</h1></a>
+    {% endif %}
+
+{% endblock %}

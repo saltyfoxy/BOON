@@ -1,0 +1,48 @@
+{% extends 'layout/base.html.twig' %}
+    {% block body %}
+        <div class="full-page-detail">
+            <a href="/shows"><i class="fas fa-arrow-alt-circle-left back"></i></a>
+            <div class="show-detail">
+                <div class="price-cart">
+                    <h2> {{ showw.name }} </h2>
+                    <h3>{{ showw.price }}</h3>
+                    {% if app.user %}
+                        <div class="cart-div" id="{{ showw.id }}">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                    {% else %}
+                    {% endif %}
+                </div>
+                <h2>{{ showw.date }}</h2>
+                <div class="adress-maps">
+                    <h4> {{ showw.adress }}</h4>
+                    <a href="https://www.google.com/maps" target="_blank"><i class="fas fa-directions map"></i></a>
+                </div>
+                <div class="text-show">
+                    <p>{{ showw.description }}</p>
+                </div>
+            </div>
+
+            <div id="show-{{ showw.id }}"
+                 class="card-detail-column">
+                <div class="card-detail-row">
+                    <div>
+                        <img src="{{ showw.DetailPicture1 }}" alt="imageCard" class="img-card-trips">
+                    </div>
+                    <div>
+                        <img src="{{ showw.DetailPicture2 }}" alt="imageCard" class="img-card-trips">
+                    </div>
+                </div>
+                <div class="card-detail-row">
+                    <div>
+                        <img src="{{ showw.DetailPicture3 }}" alt="imageCard" class="img-card-trips">
+                    </div>
+                    <div>
+                        <img src="{{ showw.DetailPicture4 }}" alt="imageCard" class="img-card-trips">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    {% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'layout/base.html.twig' %}
+{% block body %}
+    <div class="detail-artist">
+        <a href="/artists"><i class="fas fa-arrow-alt-circle-left back"></i></a>
+        <div id="artist-{{ artist.id }}"
+             class="card-artist">
+            <h2> {{ artist.name }} </h2>
+            <img src="{{ artist.picture }}" alt="imageCard" class="img-card-artist">
+            <h2>{{ artist.job }}</h2>
+            <p>{{ artist.description }}</p>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'layout/base.html.twig' %}
+{% block body %}
+
+    <div class="payments-column">
+        <div class="payments-row">
+            <div>
+                <a href="https://www.paypal.com/fr/home" target="_blank">
+                    <img src="{{ asset('build/paypal.png') }}">
+                </a>
+            </div>
+            <div>
+                    <a href="https://www.mastercard.fr/fr-fr.html" target="_blank">
+                    <img src="{{ asset('build/visa-mastercard.png') }}">
+                </a>
+            </div>
+        </div>
+        <div class="payments-row">
+            <div>
+                <a>
+                    <img src="{{ asset('build/CarteBleue.png') }}">
+                </a>
+            </div>
+            <div>
+                <a href="https://www.americanexpress.com/fr/" target="_blank">
+                    <img src="{{ asset('build/american-express.png') }}">
+                </a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

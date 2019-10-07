@@ -1,0 +1,33 @@
+<div class="navbar">
+    <div>
+        <a style="text-decoration:none"href="/"><img class="logo-home" src="{{ asset('build/logo.png') }}" alt="logohome"></a>
+    </div>
+    <div>
+        <a style="text-decoration:none" href="/shows"><p>Les spectacles</p></a>
+    </div>
+    <div>
+        <a style="text-decoration:none" href="/artists"><p>Les artistes</p></a>
+    </div>
+    <div>
+        <a style="text-decoration:none" href="/payments"><p>Moyens de paiement</p></a>
+    </div>
+    <div>
+        <a style="text-decoration:none" href="/cart"><i class="fas fa-shopping-cart cart"></i></a>
+    </div>
+    <div class="btn-connexion">
+        {% if app.user %}
+            <a style="text-decoration:none" href="{{ path('my_account_profile') }}">Mon compte</a>
+        {% else %}
+            <a style="text-decoration:none" href="{{ path('app_login') }}">Connexion</a>
+        {% endif %}
+    </div>
+    <div class="btn-inscription">
+        {% if app.user %}
+            <a style="text-decoration:none" href="{{ path('app_logout') }}">Déconnexion</a>
+        {% else %}
+            <a style="text-decoration:none" href="{{ path('registration') }}">Inscription</a>
+        {% endif %}
+    </div>
+
+
+</div>
