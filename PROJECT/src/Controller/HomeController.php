@@ -3,7 +3,8 @@
 
 namespace App\Controller;
 
-use App\Entity\Showw;
+use App\Entity\Store;
+use App\Entity\storew;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -21,15 +22,15 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("shows/{id}/favorite",name="show_favorite", requirements={"id":"\d+"})
+     * @Route("stores/{id}/favorite",name="store_favorite", requirements={"id":"\d+"})
      */
 
-    public function favorite(Showw $showw, EntityManagerInterface $entityManager)
+    public function favorite(Store $store, EntityManagerInterface $entityManager)
     {
-        if ($this->getUser()->getShoww()->contains($showw)) {
-            $this->getUser()->removeShoww($showw);
+        if ($this->getUser()->getStore()->contains($store)) {
+            $this->getUser()->removeStore($store);
         } else {
-            $this->getUser()->addShoww($showw);
+            $this->getUser()->addStore($store);
         }
 
         $entityManager->flush();
@@ -38,19 +39,19 @@ class HomeController extends AbstractController
 
         return $this->json(
             [
-                'isFav' => $this->getUser()->isFavoriteShow($showw)
+                'isFav' => $this->getUser()->isFavoritestore($store)
             ]
         );
     }
 
     /**
-     * @Route("shows/{id}/delete", name="show_favorite_delete", requirements={"id":"\d+"}, methods={"DELETE"})
+     * @Route("stores/{id}/delete", name="store_favorite_delete", requirements={"id":"\d+"}, methods={"DELETE"})
      */
 
-    public function deleteFavoriteShow(Showw $showw, EntityManagerInterface $entityManager): Response
+    public function deleteFavoritestore(Store $store, EntityManagerInterface $entityManager): Response
     {
-        if ($this->getUser()->getShoww()->contains($showw)) {
-            $this->getUser()->removeShoww($showw);
+        if ($this->getUser()->getstorew()->contains($store)) {
+            $this->getUser()->removestorew($store);
             $entityManager->flush();
         }
 

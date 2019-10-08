@@ -42,9 +42,9 @@ class User implements UserInterface
     private $confirm_password;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Showw", mappedBy="showw")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Store", mappedBy="Store")
      */
-    private $showws;
+    private $Store;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Favorite", inversedBy="User")
@@ -58,7 +58,7 @@ class User implements UserInterface
 
     public function __construct()
     {
-        $this->showws = new ArrayCollection();
+        $this->Store = new ArrayCollection();
         $this->favorite = new ArrayCollection();
     }
 
@@ -157,43 +157,43 @@ class User implements UserInterface
     }
 
     /**
-     * @return Collection|Showw[]
+     * @return Collection|Store[]
      */
-    public function getShoww(): Collection
+    public function getStore(): Collection
     {
-        return $this->showws;
+        return $this->Stores;
     }
     /**
-     * @param Showw $showw
+     * @param Store $Store
      * @return User
      */
-    public function addShoww(Showw $showw): self
+    public function addStore(Store $Store): self
     {
-        if (!$this->showws->contains($showw)) {
-            $this->showws[] = $showw;
-            $showw->addShoww($this);
+        if (!$this->Stores->contains($Store)) {
+            $this->Stores[] = $Store;
+            $Store->addStore($this);
         }
 
         return $this;
     }
     /**
-     * @param Showw $showw
+     * @param Store $Store
      * @return User
      */
-    public function removeShoww(Showw $showw): self
+    public function removeStore(Store $Store): self
     {
-        if ($this->showws->contains($showw)) {
-            $this->showws->removeElement($showw);
-            $showw->removeShoww($this);
+        if ($this->Stores->contains($Store)) {
+            $this->Stores->removeElement($Store);
+            $Store->removeStore($this);
         }
 
         return $this;
     }
 
-    public function isFavoriteShow(Showw $showw)
+    public function isFavoriteShow(Store $Store)
     {
         $isFavoriteShow = false;
-        if ($this->showws->contains($showw)) {
+        if ($this->Stores->contains($Store)) {
             $isFavoriteShow = true;
         }
         return $isFavoriteShow;

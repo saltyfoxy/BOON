@@ -2,35 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\Showw;
+use App\Entity\Store;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
- * @method Showw|null find($id, $lockMode = null, $lockVersion = null)
- * @method Showw|null findOneBy(array $criteria, array $orderBy = null)
- * @method Showw[]    findAll()
- * @method Showw[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Store|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Store|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Store[]    findAll()
+ * @method Store[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ShowwRepository extends ServiceEntityRepository
+class StoreRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {
-        parent::__construct($registry, Showw::class);
+        parent::__construct($registry, Store::class);
     }
 
-    public function getShowwsWithArtists()
-    {
-        $qb = $this->createQueryBuilder('showw')
-            ->leftJoin('showw.artist', 'artist')
-            ->addSelect('artist')
-            ->where('artist.id = :id')
-            ->getQuery();
-
-        return $qb->execute();
-    }
     // /**
-    //  * @return Showw[] Returns an array of Showw objects
+    //  * @return Store[] Returns an array of Store objects
     //  */
     /*
     public function findByExampleField($value)
@@ -47,7 +37,7 @@ class ShowwRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Showw
+    public function findOneBySomeField($value): ?Store
     {
         return $this->createQueryBuilder('s')
             ->andWhere('s.exampleField = :val')
