@@ -27,27 +27,23 @@ $(document).ready(function () {
 
         let id = parseInt(e.currentTarget.id);
         console.log(id);
-        let url = '/shows/' + id + '/favorite';
+        let url = '/stores/' + id + '/favorite';
         console.log(url);
 
         fetch(url)
             .then(response => response.json())
             .then(json => {
                 console.log(json);
-
+                location.reload()
             });
-        location.reload()
-
     });
-    setTimeout(function(){
-        $('.flash-notice').hide()
-    }, 3000)
+
 });
 
 $(document).ready(function () {
-    $('.delete-show-div').click(function (e) {
+    $('.delete-store-div').click(function (e) {
         let id = parseInt(e.currentTarget.id);
-        let url = '/shows/' + id + '/delete';
+        let url = '/stores/' + id + '/delete';
 
         $.ajax({
             type:"DELETE",
@@ -57,6 +53,40 @@ $(document).ready(function () {
 
     })
 });
+
+$(function(){
+    $(".cart-div").click(function(){
+        $(".far ").toggleClass("fas");
+    });
+});
+
+
+const navSlide = () => {
+    const burger = document.querySelector('.burger');
+    const nav = document.querySelector('.navigation-links');
+    const navLinks = document.querySelectorAll('.navigation-links li');
+//Toggle nav
+
+    burger.addEventListener('click', () => {
+        nav.classList.toggle('nav-active');
+
+        //Animate links
+        navLinks.forEach((link, index) => {
+            if (link.style.animation) {
+                link.style.animation = ''
+            } else {
+                link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 1.5}s`;
+            }
+        });
+
+        //Bur   ger Animation
+        burger.classList.toggle('toggle');
+    });
+
+}
+
+navSlide();
+
 
 
 

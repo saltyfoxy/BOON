@@ -41,10 +41,7 @@ class User implements UserInterface
      */
     private $confirm_password;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Store", mappedBy="Store")
-     */
-    private $Store;
+
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Favorite", inversedBy="User")
@@ -56,10 +53,24 @@ class User implements UserInterface
      */
     private $name;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Store", mappedBy="user")
+     */
+    private $stores;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Product", mappedBy="user")
+     */
+    private $products;
+
+
+
     public function __construct()
     {
-        $this->Store = new ArrayCollection();
+        $this->store = new ArrayCollection();
         $this->favorite = new ArrayCollection();
+        $this->stores = new ArrayCollection();
+        $this->products = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -156,48 +167,6 @@ class User implements UserInterface
         // $this->plainPassword = null;
     }
 
-    /**
-     * @return Collection|Store[]
-     */
-    public function getStore(): Collection
-    {
-        return $this->Stores;
-    }
-    /**
-     * @param Store $Store
-     * @return User
-     */
-    public function addStore(Store $Store): self
-    {
-        if (!$this->Stores->contains($Store)) {
-            $this->Stores[] = $Store;
-            $Store->addStore($this);
-        }
-
-        return $this;
-    }
-    /**
-     * @param Store $Store
-     * @return User
-     */
-    public function removeStore(Store $Store): self
-    {
-        if ($this->Stores->contains($Store)) {
-            $this->Stores->removeElement($Store);
-            $Store->removeStore($this);
-        }
-
-        return $this;
-    }
-
-    public function isFavoriteShow(Store $Store)
-    {
-        $isFavoriteShow = false;
-        if ($this->Stores->contains($Store)) {
-            $isFavoriteShow = true;
-        }
-        return $isFavoriteShow;
-    }
 
 
     public function __toString()
@@ -213,6 +182,71 @@ class User implements UserInterface
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Store[]
+     */
+    public function getStores(): Collection
+    {
+        return $this->stores;
+    }
+
+    public function addStore(Store $store): self
+    {
+        if (!$this->stores->contains($store)) {
+            $this->stores[] = $store;
+            $store->addUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeStore(Store $store): self
+    {
+        if ($this->stores->contains($store)) {
+            $this->stores->removeElement($store);
+            $store->removeUser($this);
+        }
+
+        return $this;
+    }
+
+    public function isFavoriteStore(Store $store)
+    {
+        $isFavoriteStore = false;
+        if ($this->stores->contains($store)) {
+            $isFavoriteStore = true;
+        }
+        return $isFavoriteStore;
+    }
+
+    /**
+     * @return Collection|Product[]
+     */
+    public function getProducts(): Collection
+    {
+        return $this->products;
+    }
+
+    public function addProduct(Product $product): self
+    {
+        if (!$this->products->contains($product)) {
+            $this->products[] = $product;
+            $product->addUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProduct(Product $product): self
+    {
+        if ($this->products->contains($product)) {
+            $this->products->removeElement($product);
+            $product->removeUser($this);
+        }
 
         return $this;
     }

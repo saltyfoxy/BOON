@@ -1,0 +1,25 @@
+{% extends 'layout/base.html.twig' %}
+{% block body %}
+    <div class="container-fluid">
+        <div class="column-products">
+            <div class="row-products">
+
+                {% for product in products %}
+                    <div id="artist-{{ product.id }}"
+                         class="card-products">
+                         <a style="text-decoration:none" href="{{ path('detail_product',{ 'id':product.id}) }}">
+                            <h2> {{ product.name }} </h2></a>
+                        <h3>{{ product.type }}</h3>
+                        <h3>{{ product.color }}</h3>
+                        <a style="text-decoration:none" href="{{ path('detail_product',{ 'id':product.id}) }}">
+                            <img src="{{ product.picture1 }}" alt="imageCard" class="img-card-shows"></a>
+                        <div class="store-price-favorite">
+                            <i class="fas fa-store store-logo"></i>
+                            {{ product.price }}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

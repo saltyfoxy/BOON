@@ -69,13 +69,53 @@ class Store
     private $product;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\StoreSchedule", inversedBy="store")
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $schedule;
+    private $Monday;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $Tuesday;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $Wednesday;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $Thursday;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $Friday;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $Saturday;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $Sunday;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\User", inversedBy="stores")
+     */
+    private $user;
+
+
+
+
 
     public function __construct()
     {
         $this->product = new ArrayCollection();
+        $this->user = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -219,15 +259,122 @@ class Store
         return $this;
     }
 
-    public function getSchedule(): ?StoreSchedule
+    public function getMonday(): ?string
     {
-        return $this->schedule;
+        return $this->Monday;
     }
 
-    public function setSchedule(?StoreSchedule $schedule): self
+    public function setMonday(?string $Monday): self
     {
-        $this->schedule = $schedule;
+        $this->Monday = $Monday;
 
         return $this;
     }
+
+    public function getTuesday(): ?string
+    {
+        return $this->Tuesday;
+    }
+
+    public function setTuesday(?string $Tuesday): self
+    {
+        $this->Tuesday = $Tuesday;
+
+        return $this;
+    }
+
+    public function getWednesday(): ?string
+    {
+        return $this->Wednesday;
+    }
+
+    public function setWednesday(?string $Wednesday): self
+    {
+        $this->Wednesday = $Wednesday;
+
+        return $this;
+    }
+
+    public function getThursday(): ?string
+    {
+        return $this->Thursday;
+    }
+
+    public function setThursday(?string $Thursday): self
+    {
+        $this->Thursday = $Thursday;
+
+        return $this;
+    }
+
+    public function getFriday(): ?string
+    {
+        return $this->Friday;
+    }
+
+    public function setFriday(?string $Friday): self
+    {
+        $this->Friday = $Friday;
+
+        return $this;
+    }
+
+    public function getSaturday(): ?string
+    {
+        return $this->Saturday;
+    }
+
+    public function setSaturday(?string $Saturday): self
+    {
+        $this->Saturday = $Saturday;
+
+        return $this;
+    }
+
+    public function getSunday(): ?string
+    {
+        return $this->Sunday;
+    }
+
+    public function setSunday(?string $Sunday): self
+    {
+        $this->Sunday = $Sunday;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getUser(): Collection
+    {
+        return $this->user;
+    }
+
+    public function addUser(User $user): self
+    {
+        if (!$this->user->contains($user)) {
+            $this->user[] = $user;
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): self
+    {
+        if ($this->user->contains($user)) {
+            $this->user->removeElement($user);
+        }
+
+        return $this;
+    }
+
+
+    public function __toString()
+    {
+        return (string) $this->user;
+    }
+
+
+
 }

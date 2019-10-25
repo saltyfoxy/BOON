@@ -2,20 +2,17 @@
 {% block body %}
 
 
-    {% for favori in favoris %}
-        <div class="cart-show">
-            <div class="cart-show-img">
-                <img src="{{ favori.picture }}" alt="imageCard" class="cart-show-image"></a>
+    {% for favoriteStore in favoriteStores %}
+        <div class="cart-store">
+            <div class="cart-store-img">
+                <img src="{{ favoriteStore.picture1 }}" alt="imageCard" class="cart-store-image"></a>
             </div>
-            <div id="show-{{ favori.id }}"
-                 class="cart-show-name">
-                <h2> {{ favori.name }} </h2>
+            <div id="store-{{ favoriteStore.id }}"
+                 class="cart-store-name">
+                <h2> {{ favoriteStore.name }} </h2>
             </div>
-            <div class="cart-show-price">
-                <h3>{{ favori.price }}</h3>
-            </div>
-            <div class="delete-show-div" id="{{ favori.id }}">
-                <i onclick="return confirm('Are you sure you want to delete this item?');" class="fas fa-times delete-show"></i>
+            <div class="delete-store-div" id="{{ favoriteStore.id }}">
+                <i onclick="return confirm('Are you sure you want to delete this item?');" class="fas fa-times delete-store"></i>
             </div>
         </div>
 

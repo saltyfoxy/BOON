@@ -1,0 +1,44 @@
+{% extends 'layout/base.html.twig' %}
+    {% block body %}
+        <div class="full-page-detail">
+            <a href="/stores"><i class="fas fa-arrow-alt-circle-left back"></i></a>
+            <div class="store-detail">
+                <div class="price-cart">
+                    <h2> {{ store.name }} </h2>
+                    <div class="adress-detail-store">
+                        <h3>{{ store.adress }}</h3>
+                        <a href="https://www.google.com/maps/search/?api=1&query={{ store.adress }}"
+                                target="_blank"><i class="fas fa-directions direction"></i></a>
+                    </div>
+                    {% if app.user %}
+                        <div class="cart-div" id="{{ store.id }}">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                    {% else %}
+                    {% endif %}
+                </div>
+                <div class="text-show">
+                    <p>{{ store.description }}</p>
+                </div>
+            </div>
+
+            <div id="show-{{ store.id }}"
+                 class="card-detail-column">
+                <div class="card-detail-row">
+                    <div>
+                        <img src="{{ store.picture1 }}" alt="imageCard" class="img-card-trips">
+                    </div>
+                    <div>
+                        <img src="{{ store.picture2 }}" alt="imageCard" class="img-card-trips">
+                    </div>
+                </div>
+                <div class="card-detail-row">
+                    <div>
+                        <img src="{{ store.picture3 }}" alt="imageCard" class="img-card-trips">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    {% endblock %}

@@ -3,6 +3,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Product;
 use App\Entity\Store;
 use App\Entity\storew;
 use Doctrine\ORM\EntityManagerInterface;
@@ -27,14 +28,14 @@ class HomeController extends AbstractController
 
     public function favorite(Store $store, EntityManagerInterface $entityManager)
     {
-        if ($this->getUser()->getStore()->contains($store)) {
+        if ($this->getUser()->getStores()->contains($store)) {
             $this->getUser()->removeStore($store);
         } else {
             $this->getUser()->addStore($store);
         }
 
         $entityManager->flush();
-        $this->addFlash('notice', 'Bien ajouté au panier !');
+        $this->addFlash('notice', 'Bien ajouté en favoris !');
 
 
         return $this->json(
@@ -48,10 +49,50 @@ class HomeController extends AbstractController
      * @Route("stores/{id}/delete", name="store_favorite_delete", requirements={"id":"\d+"}, methods={"DELETE"})
      */
 
-    public function deleteFavoritestore(Store $store, EntityManagerInterface $entityManager): Response
+    public function deleteFavoriteStore(Store $store, EntityManagerInterface $entityManager): Response
     {
-        if ($this->getUser()->getstorew()->contains($store)) {
-            $this->getUser()->removestorew($store);
+        if ($this->getUser()->getStores()->contains($store)) {
+            $this->getUser()->removeStore($store);
+            $entityManager->flush();
+        }
+
+        return new Response();
+    }
+
+
+
+
+    /**
+     * @Route("products/{id}/favorite",name="product_favorite", requirements={"id":"\d+"})
+     */
+
+    public function favoriteProduct(Product $product, EntityManagerInterface $entityManager)
+    {
+        if ($this->getUser()->getStores()->contains($product)) {
+            $this->getUser()->removeStore($product);
+        } else {
+            $this->getUser()->addStore($product);
+        }
+
+        $entityManager->flush();
+        $this->addFlash('notice', 'Bien ajouté en favoris !');
+
+
+        return $this->json(
+            [
+                'isFav' => $this->getUser()->isFavoritestore($product)
+            ]
+        );
+    }
+
+    /**
+     * @Route("products/{id}/delete", name="product_favorite_delete", requirements={"id":"\d+"}, methods={"DELETE"})
+     */
+
+    public function deleteFavoriteProduct(Product $product, EntityManagerInterface $entityManager): Response
+    {
+        if ($this->getUser()->getStores()->contains($product)) {
+            $this->getUser()->removeStore($product);
             $entityManager->flush();
         }
 

@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Store;
 use App\Repository\StoreRepository;
+use App\Repository\StoreScheduleRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Repository\RepositoryFactory;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -33,7 +34,7 @@ class StoreController extends AbstractController
             'id' => $store->getId(),
         ));
         return $this->render('store.html.twig', array(
-            '$store' => $store,
+            'store' => $store,
         ));
     }
 }

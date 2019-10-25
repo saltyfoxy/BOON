@@ -1,0 +1,18 @@
+{% extends 'layout/base.html.twig' %}
+{% block body %}
+    <div class="detail-product">
+        <a href="/products"><i class="fas fa-arrow-alt-circle-left back"></i></a>
+        <div id="product-{{ product.id }}"
+             class="card-product">
+            <h2> {{ product.name }} </h2>
+            <h2> {{ product.price }} </h2>
+            <img src="{{ product.picture1 }}" alt="imageCard" class="img-card-product">
+            <img src="{{ product.picture2 }}" alt="imageCard" class="img-card-product">
+            <img src="{{ product.picture3 }}" alt="imageCard" class="img-card-product">
+            <img src="{{ product.picture4 }}" alt="imageCard" class="img-card-product">
+            <img src="{{ product.picture5 }}" alt="imageCard" class="img-card-product">
+            <h2>{{ product.tags }}</h2>
+        </div>
+    </div>
+
+{% endblock %}
