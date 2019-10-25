@@ -20,10 +20,12 @@ console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
 
 const $ = require('jquery');
 
+// FAVORITE STORE 
+
 
 $(document).ready(function () {
 
-    $('.cart-div').click(function (e) {
+    $('.favorite-store-button').click(function (e) {
 
         let id = parseInt(e.currentTarget.id);
         console.log(id);
@@ -46,7 +48,7 @@ $(document).ready(function () {
         let url = '/stores/' + id + '/delete';
 
         $.ajax({
-            type:"DELETE",
+            type: "DELETE",
             url: url,
         })
         location.reload()
@@ -54,11 +56,7 @@ $(document).ready(function () {
     })
 });
 
-$(function(){
-    $(".cart-div").click(function(){
-        $(".far ").toggleClass("fas");
-    });
-});
+// FAVORITE PRODUCT
 
 
 const navSlide = () => {
@@ -86,6 +84,38 @@ const navSlide = () => {
 }
 
 navSlide();
+
+
+/**************************** *****************************/
+/****************      AJAX SEARCHBAR TRIPS     *******************/
+/**************************** *****************************/
+
+let rechercheAjax =
+    function () {
+        let recherche = $('#search').val();
+        $.ajax({
+            type: "GET",
+            url: "/search-stores",
+            dataType: "json",
+            data: {
+                recherche: recherche,
+            },
+            success: function (stores) {
+                $('.card-store').addClass('d-none');
+                stores.forEach(function (store) {
+                    $('#store-' + store.id).removeClass('d-none');
+                })
+            }
+        });
+    };
+
+$('#search').keyup(
+    debounce(rechercheAjax, 250));
+
+
+document.getElementById("submit-search").addEventListener("click", function (event) {
+    event.preventDefault()
+});
 
 
 

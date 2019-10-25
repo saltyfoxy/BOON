@@ -1,8 +1,7 @@
-
 @import "vars";
 
 
-p {
+p, h1, h2, h3, h4, h5, h6 {
   font-family: $typography;
 }
 
@@ -28,24 +27,26 @@ body {
   }
 }
 
-.nav-links{
+.nav-links {
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
 }
-.navigation-links{
+
+.navigation-links {
   width: 35%;
 }
 
 
-.burger div{
+.burger div {
   width: 27px;
   height: 4px;
-  background-color:white;
-  margin:5px;
+  background-color: white;
+  margin: 5px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
-.burger{
+
+.burger {
   display: none;
   height: 50%;
   margin-top: 0.3%;
@@ -55,7 +56,7 @@ body {
   width: 30%;
 }
 
-.btn-inscription-burger-menu{
+.btn-inscription-burger-menu {
   display: none;
 }
 
@@ -65,7 +66,7 @@ body {
   margin-top: 20%;
 }
 
-.cart-div {
+.favorite-store-button {
   color: $primary-color;
   margin-top: 6%;
 }
@@ -77,7 +78,7 @@ body {
 
 .column-stores {
   display: flex;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
   flex-direction: column;
   margin-left: 1em;
   margin-bottom: 3em;
@@ -109,21 +110,23 @@ body {
         font-size: 1.3em;
         font-family: $typography;
         font-weight: bold;
-        color: $primary-color;
+        color: white;
+        text-shadow: 0 0 5px $primary-color, 0 0 5px $primary-color;
         width: 70%;
         text-align: center;
         border-radius: 2.2em;
         margin: 4% auto;
         padding-left: 4%;
         padding-right: 4%;
-
-        border: $primary-color solid 3px;
-
+        border: white solid 3px;
+        box-shadow: 0px 0px 15px 1px $primary-color;
       }
+
       h3 {
         font-size: 0.9em;
         font-family: $typography;
-        color: $primary-color;
+        color: white;
+        text-shadow: 0 0 5px $primary-color, 0 0 5px $primary-color;
         margin: 0 auto;
         text-align: center;
       }
@@ -145,47 +148,111 @@ body {
   }
 }
 
-.card-products {
-  border-radius: 30em;
-  height: auto;
-  width: 25%;
-  border: $primary-color solid 3px;
-  margin-top: 3em;
-  background-color: $secondary-color;
-  color: white;
+.column-products {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-left: 1em;
+  margin-bottom: 3em;
 
-  img {
-    width: 60%;
-    height: 20%;
-    border-radius: 30em;
-    object-fit: cover;
-    margin: 0 auto;
-    padding-bottom: 5%;
-  }
+  .row-products {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 4% auto;
+    justify-content: space-evenly;
 
-  h2 {
-    font-size: 1.1em;
-    font-family: $typography;
-    font-weight: bold;
-    color: white;
-    text-shadow: 2px 2px 4px $primary-color;
-    width: 60%;
-    text-align: center;
-    border-radius: 3em;
-    margin: 8% auto;
+    .card-products {
+      border-radius: 12em;
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      width: 24%;
+      border: $primary-color solid 3px;
+      margin: 2% auto;
+      background-color: $secondary-color;
+      color: white;
 
-  }
+      .image-card-product {
+        width: 65%;
+        height: auto;
+        margin: 0 auto;
+      }
 
-  h3 {
-    font-size: 0.9em;
-    font-family: $typography;
-    font-weight: bold;
-    text-align: center;
-    color: white;
-    margin-top: -3%;
-    text-shadow: 2px 2px 4px $primary-color;
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 30em;
+        object-fit: cover;
+      }
+
+      h2 {
+        font-size: 1.1em;
+        font-family: $typography;
+        font-weight: bold;
+        color: white;
+        text-shadow: 0 0 5px $primary-color, 0 0 5px $primary-color;
+        width: 60%;
+        text-align: center;
+        border-radius: 3em;
+        margin: 8% auto;
+
+      }
+
+      h3 {
+        font-size: 0.9em;
+        font-family: $typography;
+        font-weight: bold;
+        text-align: center;
+        color: white;
+        margin-top: -3%;
+        text-shadow: 0 0 5px $primary-color, 0 0 5px $primary-color;
+      }
+
+      h4 {
+        font-size: 1.2em;
+        font-weight: bold;
+        text-align: center;
+        color: white;
+        margin-top: 3%;
+        text-shadow: 0 0 5px $primary-color, 0 0 5px $primary-color;
+      }
+    }
   }
 }
+
+
+.type-color {
+  display: flex;
+  justify-content: space-evenly;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.store-price-favorite {
+  display: flex;
+  justify-content: space-around;
+  width: 60%;
+  margin: 5% auto;
+
+}
+
+.store-logo {
+  color: $primary-color;
+  font-size: 2em;
+}
+
+.info {
+  margin: 0 auto;
+  padding-bottom: 4%;
+
+  .info-logo {
+    color: $primary-color;
+    font-size: 2.3em;
+  }
+}
+
 
 .card-product {
   display: flex;
@@ -591,7 +658,8 @@ body {
       margin: 3%;
     }
   }
-  .cart-store-name,.cart-store-price,.delete-store-div{
+
+  .cart-store-name, .cart-store-price, .delete-store-div {
     margin-top: 4%;
   }
 
@@ -607,14 +675,15 @@ body {
     margin-top: 3%;
     font-size: 1.8em;
   }
-  .delete-store{
+
+  .delete-store {
     font-size: 3em;
     color: $primary-color;
   }
 }
 
 
-.flash-notice{
+.flash-notice {
   color: $primary-color;
   font-size: 2em;
   width: 20%;
@@ -622,12 +691,12 @@ body {
   font-weight: bold;
 }
 
-.blank-favorite{
+.blank-favorite {
   color: $primary-color;
   font-size: 2.4em;
 }
 
-.days,.schedule{
+.days, .schedule {
   padding-bottom: 30%;
 }
 
@@ -637,13 +706,14 @@ body {
   margin-top: 3%;
   height: 60%;
 }
-.direction{
+
+.direction {
   color: $primary-color;
-  font-size: 2.4em ;
+  font-size: 2.4em;
   margin-top: 60%;
 }
 
-.adress-detail-store{
+.adress-detail-store {
   display: flex;
   justify-content: space-evenly;
   width: 70%;

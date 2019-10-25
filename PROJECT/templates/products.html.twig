@@ -1,25 +1,34 @@
 {% extends 'layout/base.html.twig' %}
 {% block body %}
-    <div class="container-fluid">
-        <div class="column-products">
-            <div class="row-products">
+    <div class="column-products">
+        <div class="row-products">
 
-                {% for product in products %}
-                    <div id="artist-{{ product.id }}"
-                         class="card-products">
-                         <a style="text-decoration:none" href="{{ path('detail_product',{ 'id':product.id}) }}">
-                            <h2> {{ product.name }} </h2></a>
-                        <h3>{{ product.type }}</h3>
+            {% for product in products %}
+                <div id="product-{{ product.id }}"
+                     class="card-products">
+                    <a style="text-decoration:none" href="{{ path('detail_product',{ 'id':product.id}) }}">
+                        <h2> {{ product.name }} </h2></a>
+                    <div class="type-color">
+                        <h3> {{ product.type }} </h3>
+                        <h3>-</h3>
                         <h3>{{ product.color }}</h3>
-                        <a style="text-decoration:none" href="{{ path('detail_product',{ 'id':product.id}) }}">
-                            <img src="{{ product.picture1 }}" alt="imageCard" class="img-card-shows"></a>
-                        <div class="store-price-favorite">
-                            <i class="fas fa-store store-logo"></i>
-                            {{ product.price }}
-                        </div>
                     </div>
-                {% endfor %}
-            </div>
+                    <a class="info" style="text-decoration:none" href="{{ path('detail_product',{ 'id':product.id}) }}">
+                        <i class="fas fa-info-circle info-logo"></i></a>
+                    <a class="image-card-product" style="text-decoration:none"
+                       href="{{ path('detail_product',{ 'id':product.id}) }}">
+                        <img src="{{ product.picture1 }}" alt="imageCard" class="image-product"></a>
+                    <div class="store-price-favorite">
+                        <i class="fas fa-store store-logo"></i>
+                        <h4>{{ product.price }} €</h4>
+                        {% if app.user %}
+                            <div class="favorite-product-button" id="{{ product.id }}">
+                                <i class="far fa-heart blank-favorite"></i>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}

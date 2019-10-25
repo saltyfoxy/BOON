@@ -19,7 +19,21 @@ class StoreRepository extends ServiceEntityRepository
         parent::__construct($registry, Store::class);
     }
 
+    public function search($criteria)
+    {
+        $qb = $this->createQueryBuilder('s');
+        if (!empty($criteria['search'])) {
+            $qb->where('s.name LIKE :string')
+                ->orWhere('s.adress LIKE :string')
+                ->orWhere('s.description LIKE :string')
+                ->orWhere('s.city LIKE :string')
+                ->setParameter(':string', '%' . $criteria['search'] . '%');
+        }
 
+        $query = $qb->getQuery();
+
+        return $query->execute();
+    }
 
 
     /*

@@ -4,13 +4,14 @@ namespace App\Controller;
 
 use App\Entity\Store;
 use App\Repository\StoreRepository;
-use App\Repository\StoreScheduleRepository;
-use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\Repository\RepositoryFactory;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
 
 class StoreController extends AbstractController
 {
@@ -36,5 +37,31 @@ class StoreController extends AbstractController
         return $this->render('store.html.twig', array(
             'store' => $store,
         ));
+    }
+
+    /**
+     * @Route("/search-stores", name="search_stores")
+     */
+    public function storeSearch(Request $request, StoreRepository $storeRepository)
+    {
+
+        $search = $request->get('recherche');
+
+        $listSearch = $storeRepository->search(compact('search'));
+
+        $encoders = array(new XmlEncoder(), new JsonEncoder());
+        $normalizers = array(new GetSetMethodNormalizer());
+        $serializer = new Serializer($normalizers, $encoders);
+
+        $options = [
+            'circular_reference_handler' => (function ($object) {
+                return $object->getId();
+            }),
+        ];
+
+        $jsonContent = $serializer->serialize($listSearch, 'json', $options);
+
+        $response = new Response($jsonContent);
+        return $response;
     }
 }

@@ -5,6 +5,21 @@
             {{ message }}
         </div>
     {% endfor %}
+
+    <div class="search-container">
+        <form method="POST" action="">
+            <input type="text" id="search" placeholder="      Qu'est ce que vous recherchez?"
+                   name="recherche">
+            <button id="submit-search" type="submit"><i class="fa fa-search"></i></button>
+
+            <div id="sresult" class="search-result">
+
+            </div>
+
+        </form>
+
+    </div>
+
     <div class="column-stores">
         <div class="row-stores">
 
@@ -21,12 +36,13 @@
                     <div class="schedule-favorite-store">
                         <div class="favorite-direction">
                             {% if app.user %}
-                                <div class="cart-div" id="{{ store.id }}">
+                                <div class="favorite-store-button" id="{{ store.id }}">
                                     <i class="far fa-heart blank-favorite"></i>
                                 </div>
                             {% else %}
                             {% endif %}
-                        <a href="https://www.google.com/maps/search/?api=1&query={{ store.adress }}" target="_blank"><i class="fas fa-directions direction"></i></a>
+                            <a href="https://www.google.com/maps/search/?api=1&query={{ store.adress }}"
+                               target="_blank"><i class="fas fa-directions direction"></i></a>
                         </div>
                         <div class="days">
                             <h3>Lundi</h3>
@@ -47,7 +63,6 @@
                             <h3><em>{{ store.sunday }}</em></h3>
                         </div>
                     </div>
-
 
 
                 </div>
