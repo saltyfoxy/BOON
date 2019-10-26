@@ -26,7 +26,6 @@ class StoreRepository extends ServiceEntityRepository
             $qb->where('s.name LIKE :string')
                 ->orWhere('s.adress LIKE :string')
                 ->orWhere('s.description LIKE :string')
-                ->orWhere('s.city LIKE :string')
                 ->setParameter(':string', '%' . $criteria['search'] . '%');
         }
 
