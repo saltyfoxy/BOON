@@ -1,70 +1,69 @@
 {% extends 'layout/base.html.twig' %}
 {% block body %}
-    {% for message in app.flashes('notice') %}
-        <div class="flash-notice">
-            {{ message }}
+    <div class="div-body">
+        {% include 'layout/flash-notice.twig' %}
+
+        <div class="search-container">
+            <form method="POST" action="">
+                <input type="text" id="search" placeholder="    Quel magasin ?"
+                       name="recherche" class="search-box-input">
+                <button class="search-box-button" id="submit-search" type="submit"><i
+                            class="fa fa-search search-logo-store"></i></button>
+
+                <div id="sresult" class="search-result"></div>
+
+            </form>
+
         </div>
-    {% endfor %}
 
-    <div class="search-container">
-        <form method="POST" action="">
-            <input type="text" id="search" placeholder="   Vous recherchez un magasin en particulier ?"
-                   name="recherche" class="search-box-input">
-            <button class="search-box-button" id="submit-search" type="submit"><i class="fa fa-search search-logo-store"></i></button>
+        <div class="column-stores">
+            <div class="row-stores">
 
-            <div id="sresult" class="search-result"></div>
-
-        </form>
-
-    </div>
-
-    <div class="column-stores">
-        <div class="row-stores">
-
-            {% for store in stores %}
-                <div id="store-{{ store.id }}"
-                     class="card-store">
-                    <a style="text-decoration:none" href="{{ path('detail_store',{ 'id':store.id}) }}">
-                        <h2> {{ store.name }} </h2></a>
-                    <a style="text-decoration:none"
-                       href="{{ path('detail_store',{ 'id':store.id}) }}">
-                        <h3> {{ store.adress }} </h3></a>
-                    <a style="text-decoration:none" href="{{ path('detail_store',{ 'id':store.id}) }}">
-                        <img src="{{ store.picture1 }}" alt="imageCard" class="img-card-stores"></a>
-                    <div class="schedule-favorite-store">
-                        <div class="favorite-direction">
-                            {% if app.user %}
-                                <div class="favorite-store-button" id="{{ store.id }}">
-                                    <i class="far fa-heart blank-favorite"></i>
-                                </div>
-                            {% else %}
-                            {% endif %}
-                            <a href="https://www.google.com/maps/search/?api=1&query={{ store.adress }}"
-                               target="_blank"><i class="fas fa-directions direction"></i></a>
+                {% for store in stores %}
+                    <div id="store-{{ store.id }}"
+                         class="card-store">
+                        <a style="text-decoration:none" href="{{ path('detail_store',{ 'id':store.id}) }}">
+                            <h2> {{ store.name }} </h2></a>
+                        <a style="text-decoration:none"
+                           href="{{ path('detail_store',{ 'id':store.id}) }}">
+                            <h3> {{ store.adress }} </h3></a>
+                        <a style="text-decoration:none" href="{{ path('detail_store',{ 'id':store.id}) }}">
+                            <img src="{{ store.picture1 }}" alt="imageCard" class="img-card-stores"></a>
+                        <div class="schedule-favorite-store">
+                            <div class="favorite-direction">
+                                {% if app.user %}
+                                    <div class="favorite-store-button" id="{{ store.id }}">
+                                        <i class="far fa-heart blank-favorite"></i>
+                                    </div>
+                                {% else %}
+                                {% endif %}
+                                <a href="https://www.google.com/maps/search/?api=1&query={{ store.adress }}"
+                                   target="_blank"><i class="fas fa-directions direction"></i></a>
+                            </div>
+                            <div class="days">
+                                <h3>Lundi</h3>
+                                <h3>Mardi</h3>
+                                <h3>Mercredi</h3>
+                                <h3>Jeudi</h3>
+                                <h3>Vendredi</h3>
+                                <h3>Samedi</h3>
+                                <h3>Dimanche</h3>
+                            </div>
+                            <div class="schedule">
+                                <h3><em>{{ store.monday }}</em></h3>
+                                <h3><em>{{ store.tuesday }}</em></h3>
+                                <h3><em>{{ store.wednesday }}</em></h3>
+                                <h3><em>{{ store.thursday }}</em></h3>
+                                <h3><em>{{ store.friday }}</em></h3>
+                                <h3><em>{{ store.saturday }}</em></h3>
+                                <h3><em>{{ store.sunday }}</em></h3>
+                            </div>
                         </div>
-                        <div class="days">
-                            <h3>Lundi</h3>
-                            <h3>Mardi</h3>
-                            <h3>Mercredi</h3>
-                            <h3>Jeudi</h3>
-                            <h3>Vendredi</h3>
-                            <h3>Samedi</h3>
-                            <h3>Dimanche</h3>
-                        </div>
-                        <div class="schedule">
-                            <h3><em>{{ store.monday }}</em></h3>
-                            <h3><em>{{ store.tuesday }}</em></h3>
-                            <h3><em>{{ store.wednesday }}</em></h3>
-                            <h3><em>{{ store.thursday }}</em></h3>
-                            <h3><em>{{ store.friday }}</em></h3>
-                            <h3><em>{{ store.saturday }}</em></h3>
-                            <h3><em>{{ store.sunday }}</em></h3>
-                        </div>
+
+
                     </div>
-
-
-                </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
         </div>
     </div>
 {% endblock %}

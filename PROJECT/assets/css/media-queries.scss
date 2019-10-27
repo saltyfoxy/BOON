@@ -1,6 +1,32 @@
-@media screen and (max-width: 1400px) and (min-width: 1100px) {
+@media screen and (max-width: 1600px) and (min-width: 1400px) {
+
+  /************ ALL STORES PAGE ***************/
+
+  .column-stores .row-stores .card-store {
+    h2 {
+      font-size: 1em;
+    }
+
+    h3 {
+      font-size: 0.8em;
+    }
+  }
+  .direction, .blank-favorite {
+    font-size: 2.2em;
+  }
+}
+
+@media screen and (max-width: 1400px) and (min-width: 1150px) {
  /************ ALL STORES PAGE ***************/
 
+
+  .store-burger-menu,.product-burger-menu,.favorite-burger-menu-button{
+    display: block;
+  }
+
+  .store-navbar-menu,.product-navbar-menu{
+    display: none;
+  }
   .column-stores .row-stores .card-store {
     width: 33%;
     height: 85vh;
@@ -67,25 +93,15 @@
 
 }
 
-@media screen and (max-width: 1600px) and (min-width: 1400px) {
-
-  /************ ALL STORES PAGE ***************/
-
-  .column-stores .row-stores .card-store {
-    h2 {
-      font-size: 1em;
-    }
-
-    h3 {
-      font-size: 0.8em;
-    }
-  }
-  .direction, .blank-favorite {
-    font-size: 2.2em;
-  }
-}
-
 @media screen and (max-width: 1150px) and (min-width: 800px) {
+
+  .store-burger-menu,.product-burger-menu,.favorite-burger-menu-button{
+    display: block;
+  }
+
+  .store-navbar-menu,.product-navbar-menu{
+    display: none;
+  }
   .heart{
     margin-top: 0;
   }
@@ -160,10 +176,20 @@
 
 }
 
-@media screen and (max-width: 800px) and (min-width: 200px) {
+@media screen and (max-width: 800px) and (min-width: 600px) {
 
   /************ ALL STORES PAGE ***************/
 
+  .store-burger-menu,.product-burger-menu,.favorite-burger-menu-button{
+    display: block;
+  }
+  .store-navbar-menu,.product-navbar-menu{
+    display: none;
+  }
+  .search-container{
+    width: 40%;
+    margin-top: 5%;
+  }
   .heart{
     font-size: 2.3em;
   }
@@ -244,7 +270,18 @@
 
   /************ ALL STORES PAGE ***************/
 
+  .store-burger-menu,.product-burger-menu,.favorite-burger-menu-button{
+    display: block;
+  }
 
+  .store-navbar-menu,.product-navbar-menu{
+    display: none;
+  }
+
+  .search-container{
+    width: 50%;
+    margin-top: 10%;
+  }
   .burger{
     margin-top: 1%;
   }
@@ -328,6 +365,18 @@
 
   /************ ALL STORES PAGE ***************/
 
+
+  .store-burger-menu,.product-burger-menu,.favorite-burger-menu-button{
+    display: block;
+  }
+
+  .store-navbar-menu,.product-navbar-menu{
+    display: none;
+  }
+  .search-container{
+    width: 70%;
+    margin-top: 10%;
+  }
   .burger{
     margin-top: 1%;
   }

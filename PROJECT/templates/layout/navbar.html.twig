@@ -11,15 +11,21 @@
                 <a style="text-decoration:none" href="/"><img class="logo-home" src="{{ asset('build/logo.png') }}"
                                                               alt="logohome"></a>
             </div>
-        <div>
-            <a style="text-decoration:none" href="/stores"><p>Les magasins</p></a>
-        </div>
-        <div>
-            <a style="text-decoration:none" href="/products"><p>Les produits</p></a>
-        </div>
-        <div class="favorite-burger-menu-button">
-            <a style="text-decoration:none" href="/cart"><p>Vos favoris</p></a>
-        </div>
+            <div class="store-burger-menu">
+                <a style="text-decoration:none" href="/stores"><p>Les magasins</p></a>
+            </div>
+            <div class="product-burger-menu">
+                <a style="text-decoration:none" href="/products"><p>Les produits</p></a>
+            </div>
+            <div class="favorite-burger-menu-button">
+                <a style="text-decoration:none" href="/cart"><p>Vos favoris</p></a>
+            </div>
+            <div class="store-navbar-menu">
+                <a style="text-decoration:none" href="/stores"><p>Les magasins</p></a>
+            </div>
+            <div class="product-navbar-menu">
+                <a style="text-decoration:none" href="/products"><p>Les produits</p></a>
+            </div>
             <div class="btn-inscription-burger-menu ">
                 {% if app.user %}
                     <a style="text-decoration:none" href="{{ path('app_logout') }}">Déconnexion</a>
@@ -46,8 +52,6 @@
             <a style="text-decoration:none" href="{{ path('registration') }}">Inscription</a>
         {% endif %}
     </div>
-
-
 
 
 </div>
