@@ -1,6 +1,7 @@
 @import "vars";
 
 
+
 p, h1, h2, h3, h4, h5, h6 {
   font-family: $typography;
 }
@@ -793,4 +794,36 @@ body {
 }
 
 
-@import "media-queries";
+@import "all-stores/max:400.scss";
+@import "all-stores/max:600-min:400";
+@import "all-stores/max:800-min:600";
+@import "all-stores/max:1150-min:800";
+@import "all-stores/max:1400-min:1150";
+@import "all-stores/max:1600-min:1400";
+
+@keyframes navLinkFade {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.toggle .line1 {
+  transform: rotate(-45deg) translate(-5px, 8px);
+}
+
+.toggle .line2 {
+  opacity: 0;
+}
+
+.toggle .line3 {
+  transform: rotate(45deg) translate(-5px, -8px);
+}
+
+.nav-active {
+  transform: translateX(0%);
+}

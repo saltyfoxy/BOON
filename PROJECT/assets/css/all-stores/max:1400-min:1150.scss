@@ -1,0 +1,76 @@
+@media screen and (max-width: 1400px) and (min-width: 1150px) {
+  /************ ALL STORES PAGE ***************/
+
+
+  .store-burger-menu,.product-burger-menu,.favorite-burger-menu-button{
+    display: block;
+  }
+
+  .store-navbar-menu,.product-navbar-menu{
+    display: none;
+  }
+  .column-stores .row-stores .card-store {
+    width: 33%;
+    height: 85vh;
+
+    h2 {
+      font-size: 1.1em;
+    }
+
+    h3 {
+      font-size: 0.9em;
+    }
+
+    img {
+      height: 50%;
+    }
+  }
+
+  .direction, .blank-favorite {
+    font-size: 2.2em;
+  }
+  .favorite-direction {
+    margin-top: 4%;
+  }
+
+  .burger {
+    display: block;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+  .row-stores {
+    width: 50%;
+  }
+  .navigation-links {
+    position: absolute;
+    left: 0px;
+    height: 150vh;
+    background-color: $quaternary-color;
+    width: 20%;
+    border-radius: 1.2em;
+    border: $primary-color solid 3px;
+    margin-top: 4%;
+    z-index: 3;
+    transform: translateX(-200%);
+    transition: transform 0.3s ease-in;
+
+    .nav-links {
+      height: 40%;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 auto;
+      display: flex;
+      width: 60%;
+
+      div {
+        margin-top: 35%;
+      }
+    }
+
+  }
+
+  /************ ALL STORES PAGE ***************/
+
+}
