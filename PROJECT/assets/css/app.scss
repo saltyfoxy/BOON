@@ -12,11 +12,12 @@ body {
   background-color: $secondary-color;
   overflow-x: hidden;
 }
-.div-body{
+
+.div-body {
   margin-top: 7%;
 }
 
-.d-none{
+.d-none {
   display: none;
 }
 
@@ -118,7 +119,7 @@ body {
   font-size: 2em;
 }
 
-.carousel-right,.carousel-left{
+.carousel-right, .carousel-left {
   font-size: 2em;
   margin: 250% auto;
 }
@@ -387,16 +388,25 @@ body {
   width: 50%;
   margin: 3% auto;
 
-  .card-detail-row {
-    display: flex;
-    width: 100%;
-    flex-direction: row;
+}
 
-    img {
-      width: 100%;
-      border-radius: 1em;
-    }
-  }
+.detail{
+  margin: 3% auto;
+}
+.detail-heart{
+  font-size:3em;
+}
+
+.lock:hover .icon-unlock,
+.lock .icon-lock {
+  display: none;
+}
+.lock:hover .icon-lock {
+  display: inline;
+}
+
+.picture-detail-store{
+  border-radius:1em;
 }
 
 .alert {
@@ -521,7 +531,8 @@ body {
   font-weight: bold;
   margin: 5% auto 0 auto;
   padding-bottom: -20%;
-  p{
+
+  p {
     text-align: center;
     font-size: 80%;
   }

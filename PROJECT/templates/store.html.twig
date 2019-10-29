@@ -20,6 +20,13 @@
                 <div class="text-show">
                     <p>{{ store.description }}</p>
                 </div>
+
+                {% if app.user %}
+                <div class="favorite-store-button detail lock" id="{{ store.id }}">
+                    <i class="far fa-heart blank-favorite detail-heart icon-unlock"></i>
+                    <i class="fas fa-heart blank-favorite detail-heart icon-lock"></i>
+                </div>
+                {% endif %}
             </div>
 
 
@@ -30,17 +37,17 @@
                     <div class="carousel-inner" role="listbox">
                         {% if store.picture1 == true %}
                         <div class="item active">
-                                <img class="d-block w-100" src="{{ store.picture1 }}" alt="First slide">
+                                <img class="picture-detail-store" src="{{ store.picture1 }}" alt="First slide">
                         </div>
                         {% endif %}
                         {% if store.picture2 == true %}
                             <div class="item">
-                                <img class="d-block w-100" src="{{ store.picture2 }}" alt="Second slide">
+                                <img class="picture-detail-store" src="{{ store.picture2 }}" alt="Second slide">
                         </div>
                         {% endif %}
                         {% if store.picture3 == true %}
                         <div class="item">
-                                <img class="d-block w-100" src="{{ store.picture3 }}" alt="Third slide">
+                                <img class="picture-detail-store" src="{{ store.picture3 }}" alt="Third slide">
                         </div>
                         {% endif %}
 

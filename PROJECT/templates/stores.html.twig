@@ -32,10 +32,10 @@
                         <div class="schedule-favorite-store">
                             <div class="favorite-direction">
                                 {% if app.user %}
-                                    <div class="favorite-store-button" id="{{ store.id }}">
-                                        <i class="far fa-heart blank-favorite"></i>
+                                    <div class="favorite-store-button lock" id="{{ store.id }}">
+                                        <i class="far fa-heart blank-favorite icon-unlock"></i>
+                                        <i class="fas fa-heart blank-favorite icon-lock"></i>
                                     </div>
-                                {% else %}
                                 {% endif %}
                                 <a href="https://www.google.com/maps/search/?api=1&query={{ store.adress }}"
                                    target="_blank"><i class="fas fa-directions direction"></i></a>
