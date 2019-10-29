@@ -8,7 +8,7 @@
                     <div class="adress-detail-store">
                         <h3>{{ store.adress }}</h3>
                         <a href="https://www.google.com/maps/search/?api=1&query={{ store.adress }}"
-                                target="_blank"><i class="fas fa-directions direction"></i></a>
+                           target="_blank"><i class="fas fa-directions direction"></i></a>
                     </div>
                     {% if app.user %}
                         <div class="cart-div" id="{{ store.id }}">
@@ -22,23 +22,40 @@
                 </div>
             </div>
 
-            <div id="show-{{ store.id }}"
-                 class="card-detail-column">
-                <div class="card-detail-row">
-                    <div>
-                        <img src="{{ store.picture1 }}" alt="imageCard" class="img-card-trips">
-                    </div>
-                    <div>
-                        <img src="{{ store.picture2 }}" alt="imageCard" class="img-card-trips">
-                    </div>
-                </div>
-                <div class="card-detail-row">
-                    <div>
-                        <img src="{{ store.picture3 }}" alt="imageCard" class="img-card-trips">
+
+            <div id="show-{{ store.id }}" class="card-detail-column">
+                <div id="carousel" class="carousel slide carousel-fade">
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                        {% if store.picture1 == true %}
+                        <div class="item active">
+                                <img class="d-block w-100" src="{{ store.picture1 }}" alt="First slide">
+                        </div>
+                        {% endif %}
+                        {% if store.picture2 == true %}
+                            <div class="item">
+                                <img class="d-block w-100" src="{{ store.picture2 }}" alt="Second slide">
+                        </div>
+                        {% endif %}
+                        {% if store.picture3 == true %}
+                        <div class="item">
+                                <img class="d-block w-100" src="{{ store.picture3 }}" alt="Third slide">
+                        </div>
+                        {% endif %}
+
+                        <!-- Controls -->
+                        <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
+                            <i class="fas fa-arrow-circle-left carousel-left"></i>
+                        </a>
+                        <a class="right carousel-control" href="#carousel" role="button" data-slide="next">
+                            <i class="fas fa-arrow-circle-right carousel-right"></i>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
+
 
 
     {% endblock %}

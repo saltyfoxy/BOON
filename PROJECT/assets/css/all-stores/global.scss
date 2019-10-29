@@ -1,0 +1,131 @@
+.search-container{
+  margin: 1% auto;
+  width: 26%;
+  button{
+    padding: 15px 10px;
+    font-size: 17px;
+    margin-left: -1%;
+    border: none;
+    cursor: pointer;
+    box-shadow: -1px 10px 15px #b2b2b2;
+    height: auto;
+    border-radius: 5px;
+    background-color: $primary-color;
+    color: white;
+  }
+  button:hover{
+    background: $quaternary-color;
+  }
+  input{
+    font-size: 17px;
+    border: none;
+    box-shadow: 1px 10px 15px #b2b2b2;
+    border-radius: 5px;
+    width: 70%;
+    height: 50px;
+    padding-left: 5%;
+  }
+}
+
+.search-logo-store{
+  font-size: 1.3em;
+}
+
+.column-stores {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-left: 1em;
+  margin-bottom: 3em;
+
+  .row-stores {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-evenly;
+
+    .card-store {
+      border-radius: 0.5em;
+      height: auto;
+      width: 25%;
+      border: $primary-color solid 3px;
+      margin-top: 3em;
+      background-color: $secondary-color;
+
+      img {
+        width: 100%;
+        height: 60%;
+        border-radius: 0.5em;
+        object-fit: cover;
+        margin-top: 3%;
+      }
+
+      h2 {
+        font-size: 1.3em;
+        font-family: $typography;
+        font-weight: bold;
+        color: $quaternary-color;
+        text-shadow: 0 0 5px $primary-color, 0 0 5px $primary-color;
+        width: 70%;
+        text-align: center;
+        border-radius: 2.2em;
+        margin: 4% auto;
+        padding-left: 4%;
+        padding-right: 4%;
+        border: $quaternary-color solid 3px;
+        box-shadow: 0px 0px 15px 1px $primary-color;
+      }
+
+      h3 {
+        font-size: 0.9em;
+        font-family: $typography;
+        color: $quaternary-color;
+        text-shadow: 0 0 5px $primary-color, 0 0 5px $primary-color;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+    }
+  }
+}
+
+.schedule-favorite-store {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 4%;
+  height: 20%;
+
+  i {
+    color: $primary-color;
+    font-size: 2.3em;
+    margin-top: 6%;
+  }
+}
+
+.favorite-direction {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3%;
+  height: 60%;
+}
+
+.favorite-store-button {
+  color: $primary-color;
+  margin-top: 6%;
+}
+
+.blank-favorite {
+  color: $primary-color;
+  font-size: 2.4em;
+}
+
+.direction {
+  color: $primary-color;
+  font-size: 2.4em;
+  margin-top: 60%;
+}
+
+.days, .schedule {
+  padding-bottom: 30%;
+}

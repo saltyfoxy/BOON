@@ -7,8 +7,7 @@
 
 // any CSS you require will output into a single css file (app.scss in this case)
 require('../css/app.scss');
-
-
+require('../js/bootstrap-carousel');
 require('@fortawesome/fontawesome-free/css/all.min.css');
 require('@fortawesome/fontawesome-free/js/all.js');
 
@@ -135,6 +134,9 @@ $('#search').keyup(
 document.getElementById("submit-search").addEventListener("click", function (event) {
     event.preventDefault()
 });
+
+////////// CAROUSEL STORE DETAIL WITH FLEXSLIDER /////////////
+
 
 
 

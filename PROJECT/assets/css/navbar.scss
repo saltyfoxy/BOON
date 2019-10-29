@@ -1,0 +1,137 @@
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: solid $primary-color 2px;
+  width: 100%;
+  background-color: $secondary-color;
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+
+  .store-navbar-menu, .product-navbar-menu {
+    p {
+      font-size: 1.2em;
+      color: $quaternary-color;
+    }
+
+    p:hover {
+      border: $primary-color ridge 1px;
+      border-radius: 0.2em;
+    }
+  }
+
+  .store-burger-menu, .product-burger-menu, .favorite-burger-menu-button {
+    p {
+      font-size: 1.2em;
+      color: $secondary-color;
+    }
+
+    p:hover {
+      border: $primary-color ridge 1px;
+      border-radius: 0.2em;
+    }
+  }
+}
+
+.store-burger-menu, .product-burger-menu, .favorite-burger-menu-button {
+  display: none;
+}
+
+.burger div {
+  width: 27px;
+  height: 4px;
+  background-color: $quaternary-color;
+  margin: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.burger {
+  display: none;
+  height: 50%;
+  margin-top: 0.3%;
+}
+
+.navigation-links {
+  width: 35%;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo-home {
+  width: 30%;
+}
+
+.btn-inscription-burger-menu {
+  display: none;
+}
+
+.heart {
+  color: $quaternary-color;
+  font-size: 2.5em;
+  margin-top: 20%;
+}
+
+.heart:hover {
+  color: $primary-color;
+}
+
+.btn-connexion {
+
+  border-radius: 3em;
+  width: 20%;
+  height: 4%;
+  margin-top: 1%;
+  text-align: center;
+
+  a {
+    color: $quaternary-color;
+    font-family: $typography;
+    font-size: 1.1em;
+    font-weight: bold;
+  }
+
+  a:hover {
+    color: $primary-color;
+  }
+
+  .btn-connexion:hover {
+    border: $primary-color solid 2px;
+  }
+}
+
+.btn-connexion:hover {
+  border: $primary-color solid 2px;
+}
+
+.btn-inscription {
+  border-radius: 3em;
+  width: 8%;
+  height: 4%;
+  margin-top: 1%;
+  text-align: center;
+
+  a {
+    color: $quaternary-color;
+    font-family: $typography;
+    font-size: 0.8em;
+    font-weight: bold;
+  }
+
+  a:hover {
+    color: $primary-color;
+
+  }
+
+  .btn-inscription:hover {
+    border: $primary-color solid 2px;
+  }
+}
+
+.btn-inscription:hover {
+  border: $primary-color solid 2px;
+}

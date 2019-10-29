@@ -1,5 +1,7 @@
 @import "vars";
-
+@import "all-stores/global";
+@import "navbar";
+@import "bootstrap-carousel.scss";
 
 
 p, h1, h2, h3, h4, h5, h6 {
@@ -18,198 +20,9 @@ body {
   display: none;
 }
 
-.navbar {
-  display: flex;
-  justify-content: space-around;
-  border-bottom: solid $primary-color 2px;
-  width: 100%;
-  background-color: $secondary-color;
-  position: absolute;
-  z-index: 1000;
-  top: 0;
-  left: 0;
-
-  .store-navbar-menu,.product-navbar-menu{
-    p {
-      font-size: 1.2em;
-      color: $quaternary-color;
-    }
-    p:hover{
-      border:$primary-color ridge 1px;
-      border-radius: 0.2em;
-    }
-  }
-  .store-burger-menu, .product-burger-menu,.favorite-burger-menu-button{
-    p{
-      font-size: 1.2em;
-      color:$secondary-color;
-    }
-    p:hover{
-      border:$primary-color ridge 1px;
-      border-radius:0.2em;
-    }
-  }
-}
-
-.store-burger-menu,.product-burger-menu,.favorite-burger-menu-button{
-  display: none;
-}
-
-.search-container{
-  margin: 1% auto;
-  width: 26%;
-  button{
-    padding: 15px 10px;
-    font-size: 17px;
-    margin-left: -1%;
-    border: none;
-    cursor: pointer;
-    box-shadow: -1px 10px 15px #b2b2b2;
-    height: auto;
-    border-radius: 5px;
-    background-color: $primary-color;
-    color: white;
-  }
-  button:hover{
-    background: $quaternary-color;
-  }
-  input{
-    font-size: 17px;
-    border: none;
-    box-shadow: 1px 10px 15px #b2b2b2;
-    border-radius: 5px;
-    width: 70%;
-    height: 50px;
-    padding-left: 5%;
-  }
-}
-
-.search-logo-store{
-  font-size: 1.3em;
-}
-
-.nav-links {
-  display: flex;
-  justify-content: space-between;
-}
-
-.navigation-links {
-  width: 35%;
-}
-
-
-.burger div {
-  width: 27px;
-  height: 4px;
-  background-color: $quaternary-color;
-  margin: 5px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.burger {
-  display: none;
-  height: 50%;
-  margin-top: 0.3%;
-}
-
-.logo-home {
-  width: 30%;
-}
-
-.btn-inscription-burger-menu {
-  display: none;
-}
-
-.heart {
-  color: $quaternary-color;
-  font-size: 2.5em;
-  margin-top: 20%;
-}
-.heart:hover{
-  color: $primary-color;
-}
-
-.favorite-store-button {
-  color: $primary-color;
-  margin-top: 6%;
-}
-
 .store-cart {
   color: $primary-color;
   font-size: 3em;
-}
-
-.column-stores {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  margin-left: 1em;
-  margin-bottom: 3em;
-
-  .row-stores {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
-    justify-content: space-evenly;
-
-    .card-store {
-      border-radius: 0.5em;
-      height: auto;
-      width: 25%;
-      border: $primary-color solid 3px;
-      margin-top: 3em;
-      background-color: $secondary-color;
-
-      img {
-        width: 100%;
-        height: 60%;
-        border-radius: 0.5em;
-        object-fit: cover;
-        margin-top: 3%;
-      }
-
-      h2 {
-        font-size: 1.3em;
-        font-family: $typography;
-        font-weight: bold;
-        color: $quaternary-color;
-        text-shadow: 0 0 5px $primary-color, 0 0 5px $primary-color;
-        width: 70%;
-        text-align: center;
-        border-radius: 2.2em;
-        margin: 4% auto;
-        padding-left: 4%;
-        padding-right: 4%;
-        border: $quaternary-color solid 3px;
-        box-shadow: 0px 0px 15px 1px $primary-color;
-      }
-
-      h3 {
-        font-size: 0.9em;
-        font-family: $typography;
-        color: $quaternary-color;
-        text-shadow: 0 0 5px $primary-color, 0 0 5px $primary-color;
-        margin: 0 auto;
-        text-align: center;
-      }
-
-    }
-  }
-}
-
-.schedule-favorite-store {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 4%;
-  height: 20%;
-
-  i {
-    color: $primary-color;
-    font-size: 2.3em;
-    margin-top: 6%;
-  }
 }
 
 .column-products {
@@ -305,6 +118,11 @@ body {
   font-size: 2em;
 }
 
+.carousel-right,.carousel-left{
+  font-size: 2em;
+  margin: 250% auto;
+}
+
 .info {
   margin: 0 auto;
   padding-bottom: 4%;
@@ -353,60 +171,6 @@ body {
   position: fixed;
   margin-top: 15%;
 
-}
-
-.btn-connexion {
-
-  border-radius: 3em;
-  width: 20%;
-  height: 4%;
-  margin-top: 1%;
-  text-align: center;
-
-  a {
-    color: $quaternary-color;
-    font-family: $typography;
-    font-size: 1.1em;
-    font-weight: bold;
-  }
-
-  a:hover {
-    color: $primary-color;
-  }
-  .btn-connexion:hover{
-    border: $primary-color solid 2px;
-  }
-}
-
-.btn-connexion:hover {
-  border: $primary-color solid 2px;
-}
-
-.btn-inscription {
-  border-radius: 3em;
-  width: 8%;
-  height: 4%;
-  margin-top: 1%;
-  text-align: center;
-
-  a {
-    color: $quaternary-color;
-    font-family: $typography;
-    font-size: 0.8em;
-    font-weight: bold;
-  }
-
-  a:hover {
-    color: $primary-color;
-
-  }
-  .btn-inscription:hover{
-    border: $primary-color solid 2px;
-  }
-}
-
-.btn-inscription:hover {
-  border: $primary-color solid 2px;
 }
 
 .sign-in, .sign-up {
@@ -622,7 +386,6 @@ body {
   flex-direction: column;
   width: 50%;
   margin: 3% auto;
-  height: 100%;
 
   .card-detail-row {
     display: flex;
@@ -764,27 +527,6 @@ body {
   }
 }
 
-.blank-favorite {
-  color: $primary-color;
-  font-size: 2.4em;
-}
-
-.days, .schedule {
-  padding-bottom: 30%;
-}
-
-.favorite-direction {
-  display: flex;
-  flex-direction: column;
-  margin-top: 3%;
-  height: 60%;
-}
-
-.direction {
-  color: $primary-color;
-  font-size: 2.4em;
-  margin-top: 60%;
-}
 
 .adress-detail-store {
   display: flex;

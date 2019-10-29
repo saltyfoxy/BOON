@@ -35,15 +35,16 @@ class StoreRepository extends ServiceEntityRepository
     }
 
 
-    /*
+
     public function findOneBySomeField($value): ?Store
     {
         return $this->createQueryBuilder('s')
-            ->andWhere('s.exampleField = :val')
+            ->andWhere('s.picture1 = :val')
+            ->andWhere('s.picture2 = :val')
+            ->andWhere('s.picture2 = :val')
             ->setParameter('val', $value)
             ->getQuery()
             ->getOneOrNullResult()
         ;
     }
-    */
 }
