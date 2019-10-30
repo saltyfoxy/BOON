@@ -34,7 +34,17 @@ class StoreRepository extends ServiceEntityRepository
         return $query->execute();
     }
 
-
+    public function getStore($sid)
+    {
+        return $this->createQueryBuilder('s')
+            ->join('s.product', 'p')
+            ->addSelect('p')
+            ->andWhere('s.id = :sid')
+            ->orderBy('p.name', 'ASC')
+            ->setParameter('sid', $sid)
+            ->getQuery()
+            ->getResult();
+    }
 
     public function findOneBySomeField($value): ?Store
     {
@@ -44,7 +54,6 @@ class StoreRepository extends ServiceEntityRepository
             ->andWhere('s.picture2 = :val')
             ->setParameter('val', $value)
             ->getQuery()
-            ->getOneOrNullResult()
-        ;
+            ->getOneOrNullResult();
     }
 }

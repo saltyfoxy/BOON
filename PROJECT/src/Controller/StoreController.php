@@ -27,15 +27,25 @@ class StoreController extends AbstractController
     }
 
     /**
-     * @Route("stores/detail/{id}", name="detail_store"))
+     * @Route("stores/detail/{id}", name="detail_store"), methods={"GET"})
      */
-    public function getOneShow(StoreRepository $repository, Store $store): Response
+    public function getOneStore(StoreRepository $repository, Store $store): Response
     {
         $store = $repository->findOneBy(array(
             'id' => $store->getId(),
         ));
+        $products_store = $repository->getStore(':id');
+        $sid = $repository->getStore(':id');
+        $em = $this->getDoctrine()->getManager();
+        $em->getRepository('App:Store')->getStore($sid);
+
+        if(null === $store) {
+            throw $this->createNotFoundException('Store not found.');
+        }
+
         return $this->render('store.html.twig', array(
             'store' => $store,
+            'product' => $products_store,
         ));
     }
 
