@@ -1,7 +1,20 @@
 @import "vars";
 @import "all-stores/global";
+@import "store/global";
 @import "navbar";
 @import "bootstrap-carousel.scss";
+@import "all-stores/max:400";
+@import "all-stores/max:600-min:400";
+@import "all-stores/max:800-min:600";
+@import "all-stores/max:1150-min:800";
+@import "all-stores/max:1400-min:1150";
+@import "all-stores/max:1600-min:1400";
+@import "store/max:400";
+@import "store/max:600-min:400";
+@import "store/max:800-min:600";
+@import "store/max:1150-min:800";
+@import "store/max:1400-min:1150";
+@import "store/max:1600-min:1400";
 
 
 p, h1, h2, h3, h4, h5, h6 {
@@ -51,6 +64,7 @@ body {
       margin: 2% auto;
       background-color: $secondary-color;
       color: $quaternary-color;
+      padding-bottom: 2%;
 
       .image-card-product {
         width: 65%;
@@ -338,61 +352,22 @@ body {
   }
 }
 
-.full-page-detail {
-  display: flex;
-  flex-direction: row;
-}
 
-.store-detail {
-  width: 50%;
+.tags{
   display: flex;
-  flex-direction: column;
+  justify-content: space-evenly;
   margin: 0 auto;
-
-  h2 {
-    color: $quaternary-color;
-    font-size: 2.3em;
-    font-family: $typography;
-    text-align: center;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: $primary-color;
-
-  }
-
-  h3 {
-    color: $quaternary-color;
-    font-size: 1.4em;
-    font-family: $typography;
-    text-align: center;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: $primary-color;
-  }
-
-  p {
-    color: $quaternary-color;
-    font-size: 1.2em;
-    font-family: $typography;
-    text-align: justify;
-    width: 60%;
-    margin: 0 auto;
-    -webkit-text-stroke-width: 0.4px;
-    -webkit-text-stroke-color: $primary-color;
-  }
+  width: 70%;
 }
 
-.card-detail-column {
-  display: flex;
-  border: solid $primary-color 2px;
+
+.carousel-fade{
+  border: solid $primary-color 3px;
   border-radius: 1em;
-  flex-direction: column;
-  width: 37%;
-  height: auto;
-  margin: 0 auto;
-
 }
 
 .detail{
-  margin: 3% auto;
+  margin: 2% auto;
 }
 .detail-heart{
   font-size:3em;
@@ -406,9 +381,7 @@ body {
   display: inline;
 }
 
-.picture-detail-store{
-  border-radius:1em;
-}
+
 
 .alert {
   background-color: $primary-color;

@@ -11,15 +11,6 @@
                             <a href="https://www.google.com/maps/search/?api=1&query={{ store.adress }}"
                                target="_blank"><i class="fas fa-directions direction"></i></a>
                         </div>
-                        {% if app.user %}
-                            <div class="cart-div" id="{{ store.id }}">
-                                <i class="fas fa-shopping-cart"></i>
-                            </div>
-                        {% else %}
-                        {% endif %}
-                    </div>
-                    <div class="text-show">
-                        <p>{{ store.description }}</p>
                     </div>
 
                     {% if app.user %}
@@ -28,8 +19,10 @@
                             <i class="fas fa-heart blank-favorite detail-heart icon-lock"></i>
                         </div>
                     {% endif %}
+                    <div class="text-show">
+                        <p>{{ store.description }}</p>
+                    </div>
                 </div>
-
 
                 <div id="show-{{ store.id }}" class="card-detail-column">
                     <div id="carousel" class="carousel slide carousel-fade">
@@ -63,27 +56,49 @@
                     </div>
                 </div>
 
+            </div>
 
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th>ProductId</th>
-                        <th>ProductName</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for product in store.product %}  {# loop through all products in store #}
-                        <tr>
-                            <td>{{ product.id }}</td>
-                            <td>{{ product.name }}</td>
-                                </tr>
-                    {% else %}
-                        <tr>
-                            <td colspan="4">no records found</td>
-                        </tr>
+            <div class="column-products">
+                <div class="row-products">
+
+                    {% for product in store.product %}
+                        <div id="product-{{ product.id }}"
+                             class="card-products">
+                            <a style="text-decoration:none" href="{{ path('detail_product',{ 'id':product.id}) }}">
+                                <h2> {{ product.name }} </h2></a>
+                            <div class="type-color">
+                                <h3> {{ product.type }} </h3>
+                                <h3>-</h3>
+                                <h3>{{ product.color }}</h3>
+                            </div>
+                            <a class="info" style="text-decoration:none"
+                               href="{{ path('detail_product',{ 'id':product.id}) }}">
+                                <i class="fas fa-info-circle info-logo"></i></a>
+                            <a class="image-card-product" style="text-decoration:none"
+                               href="{{ path('detail_product',{ 'id':product.id}) }}">
+                                <img class="image-product" src="{{ product.picture1 }}" alt="imageCard"></a>
+                            <div class="store-price-favorite">
+                                {% if app.user %}
+                                    <div class="favorite-product-button" id="{{ product.id }}">
+                                        <i class="far fa-heart blank-favorite"></i>
+                                    </div>
+                                {% endif %}
+                                <h4>{{ product.price }} €</h4>
+                            </div>
+                            <div class="tags">
+                                {% if product.tags == true %}
+                                    <h3>#{{ product.tags }}</h3>
+                                {% endif %}
+                                {% if product.tag2 == true %}
+                                    <h3>#{{ product.tag2 }}</h3>
+                                {% endif %}
+                                {% if product.tag3 == true %}
+                                    <h3>#{{ product.tag3 }}</h3>
+                                {% endif %}
+                            </div>
+                        </div>
                     {% endfor %}
-                    </tbody>
-                </table>
+                </div>
             </div>
         </div>
 

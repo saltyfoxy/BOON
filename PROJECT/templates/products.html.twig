@@ -27,6 +27,18 @@
                             </div>
                         {% endif %}
                     </div>
+
+                    <div class="tags">
+                        {% if product.tags == true %}
+                        <h3>#{{ product.tags }}</h3>
+                        {% endif %}
+                        {% if product.tag2 == true %}
+                        <h3>#{{ product.tag2 }}</h3>
+                        {% endif %}
+                        {% if product.tag3 == true %}
+                        <h3>#{{ product.tag3 }}</h3>
+                        {% endif %}
+                    </div>
                 </div>
             {% endfor %}
         </div>
