@@ -250,5 +250,13 @@ class User implements UserInterface
 
         return $this;
     }
+    public function isFavoriteProduct(Product $product)
+    {
+        $isFavoriteProduct = false;
+        if ($this->products->contains($product)) {
+            $isFavoriteProduct = true;
+        }
+        return $isFavoriteProduct;
+    }
 
 }

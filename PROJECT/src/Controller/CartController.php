@@ -24,6 +24,7 @@ class CartController extends AbstractController
     {
 
         $favoriteStore = $this->getUser()->getStores();
+        $favoriteProduct = $this->getUser()->getProducts();
         $user = $this->getUser();
 
 
@@ -31,6 +32,7 @@ class CartController extends AbstractController
             'cart.html.twig',
             [
                 'favoriteStores' => $favoriteStore,
+                'favoriteProducts' => $favoriteProduct,
                 'user' => $user,
             ]
         );

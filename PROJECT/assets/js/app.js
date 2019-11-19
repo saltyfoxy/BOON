@@ -57,6 +57,39 @@ $(document).ready(function () {
 
 // FAVORITE PRODUCT
 
+$(document).ready(function () {
+
+    $('.favorite-product-button').click(function (e) {
+
+        let id = parseInt(e.currentTarget.id);
+        console.log(id);
+        let url = '/products/' + id + '/favorite';
+        console.log(url);
+
+        fetch(url)
+            .then(response => response.json())
+            .then(json => {
+                console.log(json);
+                location.reload()
+            });
+    });
+
+});
+
+$(document).ready(function () {
+    $('.delete-product-div').click(function (e) {
+        let id = parseInt(e.currentTarget.id);
+        let url = '/products/' + id + '/delete';
+
+        $.ajax({
+            type: "DELETE",
+            url: url,
+        })
+        location.reload()
+
+    })
+});
+
 
 const navSlide = () => {
     const burger = document.querySelector('.burger');

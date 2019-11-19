@@ -112,6 +112,10 @@ body {
   }
 }
 
+.favorite{
+  display: flex;
+  flex-direction: row;
+}
 
 .type-color {
   display: flex;
@@ -474,7 +478,7 @@ body {
     }
   }
 
-  .cart-store-name, .cart-store-price, .delete-store-div {
+  .cart-store-name, .cart-store-price,delete-store-div {
     margin-top: 4%;
   }
 
@@ -491,10 +495,11 @@ body {
     font-size: 1.8em;
   }
 
-  .delete-store {
-    font-size: 3em;
-    color: $primary-color;
-  }
+
+}
+.delete-store {
+  font-size: 3em;
+  color: red;
 }
 
 

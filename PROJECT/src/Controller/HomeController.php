@@ -68,10 +68,10 @@ class HomeController extends AbstractController
 
     public function favoriteProduct(Product $product, EntityManagerInterface $entityManager)
     {
-        if ($this->getUser()->getStores()->contains($product)) {
-            $this->getUser()->removeStore($product);
+        if ($this->getUser()->getProducts()->contains($product)) {
+            $this->getUser()->removeProduct($product);
         } else {
-            $this->getUser()->addStore($product);
+            $this->getUser()->addProduct($product);
         }
 
         $entityManager->flush();
@@ -80,7 +80,7 @@ class HomeController extends AbstractController
 
         return $this->json(
             [
-                'isFav' => $this->getUser()->isFavoritestore($product)
+                'isFav' => $this->getUser()->isFavoriteProduct($product)
             ]
         );
     }
@@ -91,8 +91,8 @@ class HomeController extends AbstractController
 
     public function deleteFavoriteProduct(Product $product, EntityManagerInterface $entityManager): Response
     {
-        if ($this->getUser()->getStores()->contains($product)) {
-            $this->getUser()->removeStore($product);
+        if ($this->getUser()->getProducts()->contains($product)) {
+            $this->getUser()->removeProduct($product);
             $entityManager->flush();
         }
 
