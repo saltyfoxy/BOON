@@ -7,6 +7,7 @@
         "ext-iconv": "*",
         "components/font-awesome": "^5.9",
         "easycorp/easyadmin-bundle": "^2.2",
+        "jeremeamia/superclosure": "^2.4",
         "php-http/curl-client": "^2.0",
         "sensio/framework-extra-bundle": "^5.4",
         "symfony/asset": "4.3.*",

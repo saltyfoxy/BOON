@@ -143,7 +143,7 @@ function debounce(func, wait, immediate) {
 
 let rechercheAjax =
     function () {
-        let recherche = $('#search').val();
+        let recherche = $ ('#search').val();
         $.ajax({
             type: "GET",
             url: "/search-stores",

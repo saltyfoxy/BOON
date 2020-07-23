@@ -45,7 +45,7 @@ class StoreController extends AbstractController
 
         return $this->render('store.html.twig', array(
             'store' => $store,
-            'product' => $products_store,
+            'storeproduct' => $products_store,
         ));
     }
 

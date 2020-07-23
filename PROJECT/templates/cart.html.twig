@@ -1,102 +1,110 @@
 {% extends 'layout/base.html.twig' %}
 {% block body %}
-    <div class="favorite">
 
-    <div class="column-stores">
-    <div class="row-stores">
+    <div class="div-body">
 
-    {% for favoriteStore in favoriteStores %}
-        <div id="store-{{ favoriteStore.id }}"
-             class="card-store">
-            <a style="text-decoration:none" href="{{ path('detail_store',{ 'id':favoriteStore.id}) }}">
-                <h2> {{ favoriteStore.name }} </h2></a>
-            <a style="text-decoration:none"
-               href="{{ path('detail_store',{ 'id':favoriteStore.id}) }}">
-                <h3> {{ favoriteStore.adress }} </h3></a>
-            <a style="text-decoration:none" href="{{ path('detail_store',{ 'id':favoriteStore.id}) }}">
-                <img src="{{ favoriteStore.picture1 }}" alt="imageCard" class="img-card-stores"></a>
-            <div class="schedule-favorite-store">
-                <div class="favorite-direction">
-                    <div class="delete-store-div" id="{{ favoriteStore.id }}">
-                        <i onclick="return confirm('Are you sure you want to delete this item?');" class="fas fa-times delete-store"></i>
-                    </div>
-                    <a href="https://www.google.com/maps/search/?api=1&query={{ favoriteStore.adress }}"
-                       target="_blank"><i class="fas fa-directions direction"></i></a>
-                </div>
-                <div class="days">
-                    <h3>Lundi</h3>
-                    <h3>Mardi</h3>
-                    <h3>Mercredi</h3>
-                    <h3>Jeudi</h3>
-                    <h3>Vendredi</h3>
-                    <h3>Samedi</h3>
-                    <h3>Dimanche</h3>
-                </div>
-                <div class="schedule">
-                    <h3><em>{{ favoriteStore.monday }}</em></h3>
-                    <h3><em>{{ favoriteStore.tuesday }}</em></h3>
-                    <h3><em>{{ favoriteStore.wednesday }}</em></h3>
-                    <h3><em>{{ favoriteStore.thursday }}</em></h3>
-                    <h3><em>{{ favoriteStore.friday }}</em></h3>
-                    <h3><em>{{ favoriteStore.saturday }}</em></h3>
-                    <h3><em>{{ favoriteStore.sunday }}</em></h3>
+        <div class="favorite">
+
+            <div class="column-stores">
+                <div class="row-stores">
+
+                    {% for favoriteStore in favoriteStores %}
+                        <div id="store-{{ favoriteStore.id }}"
+                             class="card-store">
+                            <a style="text-decoration:none" href="{{ path('detail_store',{ 'id':favoriteStore.id}) }}">
+                                <h2> {{ favoriteStore.name }} </h2></a>
+                            <a style="text-decoration:none"
+                               href="{{ path('detail_store',{ 'id':favoriteStore.id}) }}">
+                                <h3> {{ favoriteStore.adress }} </h3></a>
+                            <a style="text-decoration:none" href="{{ path('detail_store',{ 'id':favoriteStore.id}) }}">
+                                <img src="{{ favoriteStore.picture1 }}" alt="imageCard" class="img-card-stores"></a>
+                            <div class="schedule-favorite-store">
+                                <div class="favorite-direction">
+                                    <div class="delete-store-div" id="{{ favoriteStore.id }}">
+                                        <i onclick="return confirm('Are you sure you want to delete this item?');"
+                                           class="fas fa-times delete-store"></i>
+                                    </div>
+                                    <a href="https://www.google.com/maps/search/?api=1&query={{ favoriteStore.adress }}"
+                                       target="_blank"><i class="fas fa-directions direction"></i></a>
+                                </div>
+                                <div class="days">
+                                    <h3>Lundi</h3>
+                                    <h3>Mardi</h3>
+                                    <h3>Mercredi</h3>
+                                    <h3>Jeudi</h3>
+                                    <h3>Vendredi</h3>
+                                    <h3>Samedi</h3>
+                                    <h3>Dimanche</h3>
+                                </div>
+                                <div class="schedule">
+                                    <h3><em>{{ favoriteStore.monday }}</em></h3>
+                                    <h3><em>{{ favoriteStore.tuesday }}</em></h3>
+                                    <h3><em>{{ favoriteStore.wednesday }}</em></h3>
+                                    <h3><em>{{ favoriteStore.thursday }}</em></h3>
+                                    <h3><em>{{ favoriteStore.friday }}</em></h3>
+                                    <h3><em>{{ favoriteStore.saturday }}</em></h3>
+                                    <h3><em>{{ favoriteStore.sunday }}</em></h3>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+                    {% endfor %}
+
                 </div>
             </div>
 
+            <div class="column-products">
+                <div class="row-products">
+
+                    {% for favoriteProduct in favoriteProducts %}
+                        <div id="product-{{ favoriteProduct.id }}"
+                             class="card-products">
+                            <a style="text-decoration:none"
+                               href="{{ path('detail_product',{ 'id':favoriteProduct.id}) }}">
+                                <h2> {{ favoriteProduct.name }} </h2></a>
+                            <div class="type-color">
+                                <h3> {{ favoriteProduct.type }} </h3>
+                                <h3>-</h3>
+                                <h3>{{ favoriteProduct.color }}</h3>
+                            </div>
+                            <a class="info" style="text-decoration:none"
+                               href="{{ path('detail_product',{ 'id':favoriteProduct.id}) }}">
+                                <i class="fas fa-info-circle info-logo"></i></a>
+                            <a class="image-card-product" style="text-decoration:none"
+                               href="{{ path('detail_product',{ 'id':favoriteProduct.id}) }}">
+                                <img src="{{ favoriteProduct.picture1 }}" alt="imageCard" class="image-product"></a>
+                            <div class="store-price-favorite">
+                                <i class="fas fa-store store-logo"></i>
+                                <h4>{{ favoriteProduct.price }} €</h4>
+                                <div class="delete-product-div" id="{{ favoriteProduct.id }}">
+                                    <i onclick="return confirm('Are you sure you want to delete this item?');"
+                                       class="fas fa-times delete-store"></i>
+                                </div>
+
+                            </div>
+
+                            <div class="tags">
+                                {% if favoriteProduct.tags == true %}
+                                    <h3>#{{ favoriteProduct.tags }}</h3>
+                                {% endif %}
+                                {% if favoriteProduct.tag2 == true %}
+                                    <h3>#{{ favoriteProduct.tag2 }}</h3>
+                                {% endif %}
+                                {% if favoriteProduct.tag3 == true %}
+                                    <h3>#{{ favoriteProduct.tag3 }}</h3>
+                                {% endif %}
+                            </div>
+
+
+                        </div>
+                    {% endfor %}
+
+                </div>
+            </div>
 
         </div>
-
-
-    {% endfor %}
-
-    </div>
-    </div>
-
-    <div class="column-products">
-        <div class="row-products">
-
-        {% for favoriteProduct in favoriteProducts %}
-            <div id="product-{{ favoriteProduct.id }}"
-                 class="card-products">
-                <a style="text-decoration:none" href="{{ path('detail_product',{ 'id':favoriteProduct.id}) }}">
-                    <h2> {{ favoriteProduct.name }} </h2></a>
-                <div class="type-color">
-                    <h3> {{ favoriteProduct.type }} </h3>
-                    <h3>-</h3>
-                    <h3>{{ favoriteProduct.color }}</h3>
-                </div>
-                <a class="info" style="text-decoration:none" href="{{ path('detail_product',{ 'id':favoriteProduct.id}) }}">
-                    <i class="fas fa-info-circle info-logo"></i></a>
-                <a class="image-card-product" style="text-decoration:none"
-                   href="{{ path('detail_product',{ 'id':favoriteProduct.id}) }}">
-                    <img src="{{ favoriteProduct.picture1 }}" alt="imageCard" class="image-product"></a>
-                <div class="store-price-favorite">
-                    <i class="fas fa-store store-logo"></i>
-                    <h4>{{ favoriteProduct.price }} €</h4>
-                    <div class="delete-product-div" id="{{ favoriteProduct.id }}">
-                        <i onclick="return confirm('Are you sure you want to delete this item?');" class="fas fa-times delete-store"></i>
-                    </div>
-
-                </div>
-
-                <div class="tags">
-                    {% if favoriteProduct.tags == true %}
-                        <h3>#{{ favoriteProduct.tags }}</h3>
-                    {% endif %}
-                    {% if favoriteProduct.tag2 == true %}
-                        <h3>#{{ favoriteProduct.tag2 }}</h3>
-                    {% endif %}
-                    {% if favoriteProduct.tag3 == true %}
-                        <h3>#{{ favoriteProduct.tag3 }}</h3>
-                    {% endif %}
-                </div>
-
-
-            </div>
-        {% endfor %}
-
-    </div>
-    </div>
-
     </div>
 {% endblock %}

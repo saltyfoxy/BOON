@@ -8,23 +8,27 @@
     <div class="navigation-links">
         <div class="nav-links">
             <div>
-                <a style="text-decoration:none" href="/"><img class="logo-home" src="{{ asset('build/logo.png') }}"
-                                                              alt="logohome"></a>
+                <a style="text-decoration:none" href="/"><i class="fas fa-search logo-navbar"></i></a>
             </div>
             <div class="store-burger-menu">
-                <a style="text-decoration:none" href="/stores"><p>Les magasins</p></a>
+                <a
+                   style="text-decoration:none" href="/stores"><p class="{% if app.request.getRequestUri() == path('all_stores') %}active{% endif %}">Les magasins</p></a>
             </div>
             <div class="product-burger-menu">
-                <a style="text-decoration:none" href="/products"><p>Les produits</p></a>
+                <a
+                   style="text-decoration:none" href="/products"><p class="{% if app.request.getRequestUri() == path('all_products') %}active{% endif %}">Les produits</p></a>
             </div>
             <div class="favorite-burger-menu-button">
-                <a style="text-decoration:none" href="/cart"><p>Vos favoris</p></a>
+                <a
+                   style="text-decoration:none" href="/cart"><p class="{% if app.request.getRequestUri() == path('cart_page') %}active{% endif %}">Vos favoris</p></a>
             </div>
-            <div class="store-navbar-menu">
-                <a style="text-decoration:none" href="/stores"><p>Les magasins</p></a>
+            <div class="store-navbar-menu ">
+                <a
+                   style="text-decoration:none" href="/stores"><p class="{% if app.request.getRequestUri() == path('all_stores') %}active{% endif %}">Les magasins</p></a>
             </div>
             <div class="product-navbar-menu">
-                <a style="text-decoration:none" href="/products"><p>Les produits</p></a>
+                <a
+                   style="text-decoration:none" href="/products"><p class="{% if app.request.getRequestUri() == path('all_products') %}active{% endif %}">Les produits</p></a>
             </div>
             <div class="btn-inscription-burger-menu ">
                 {% if app.user %}
@@ -36,7 +40,7 @@
         </div>
     </div>
     <div>
-        <a style="text-decoration:none" href="/cart"><i class="fas fa-heart heart"></i></a>
+        <a style="text-decoration:none" href="/cart"><i class="fas fa-heart heart {% if app.request.getRequestUri() == path('cart_page') %}active{% endif %}"></i></a>
     </div>
     <div class="btn-connexion">
         {% if app.user %}

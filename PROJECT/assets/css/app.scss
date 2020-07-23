@@ -112,10 +112,7 @@ body {
   }
 }
 
-.favorite{
-  display: flex;
-  flex-direction: row;
-}
+
 
 .type-color {
   display: flex;
@@ -558,4 +555,10 @@ body {
 
 .nav-active {
   transform: translateX(0%);
+}
+
+.logo-navbar{
+  font-size: 2em;
+  color: $primary-color;
+  margin: 5% auto;
 }

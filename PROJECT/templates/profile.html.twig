@@ -1,6 +1,7 @@
 {% extends 'layout/base.html.twig' %}
 {% block body %}
 
+    <div class="div-body">
     {% if app.user %}
         <h1 class="title-profile">Bonjour {{ app.user.name }} !</h1>
         <div class="title-shows-profile">
@@ -13,5 +14,7 @@
     {% else %}
         <a href="/login"><h1 class="title-profile">Cette page n'est pas accessible pour vous, veuillez vous connecter !</h1></a>
     {% endif %}
+
+    </div>
 
 {% endblock %}

@@ -61,39 +61,39 @@
             <div class="column-products">
                 <div class="row-products">
 
-                    {% for product in store.product %}
-                        <div id="product-{{ product.id }}"
+                    {% for storeproduct in store.product %}
+                        <div id="product-{{ storeproduct.id }}"
                              class="card-products">
-                            <a style="text-decoration:none" href="{{ path('detail_product',{ 'id':product.id}) }}">
-                                <h2> {{ product.name }} </h2></a>
+                            <a style="text-decoration:none" href="{{ path('detail_product',{ 'id':storeproduct.id}) }}">
+                                <h2> {{ storeproduct.name }} </h2></a>
                             <div class="type-color">
-                                <h3> {{ product.type }} </h3>
+                                <h3> {{ storeproduct.type }} </h3>
                                 <h3>-</h3>
-                                <h3>{{ product.color }}</h3>
+                                <h3>{{ storeproduct.color }}</h3>
                             </div>
                             <a class="info" style="text-decoration:none"
-                               href="{{ path('detail_product',{ 'id':product.id}) }}">
+                               href="{{ path('detail_product',{ 'id':storeproduct.id}) }}">
                                 <i class="fas fa-info-circle info-logo"></i></a>
                             <a class="image-card-product" style="text-decoration:none"
-                               href="{{ path('detail_product',{ 'id':product.id}) }}">
-                                <img class="image-product" src="{{ product.picture1 }}" alt="imageCard"></a>
+                               href="{{ path('detail_product',{ 'id':storeproduct.id}) }}">
+                                <img class="image-product" src="{{ asset(storeproduct.picture1) }}" alt="imageCard"></a>
                             <div class="store-price-favorite">
                                 {% if app.user %}
-                                    <div class="favorite-product-button" id="{{ product.id }}">
+                                    <div class="favorite-product-button" id="{{ storeproduct.id }}">
                                         <i class="far fa-heart blank-favorite"></i>
                                     </div>
                                 {% endif %}
-                                <h4>{{ product.price }} €</h4>
+                                <h4>{{ storeproduct.price }} €</h4>
                             </div>
                             <div class="tags">
-                                {% if product.tags == true %}
-                                    <h3>#{{ product.tags }}</h3>
+                                {% if storeproduct.tags == true %}
+                                    <h3>#{{ storeproduct.tags }}</h3>
                                 {% endif %}
-                                {% if product.tag2 == true %}
-                                    <h3>#{{ product.tag2 }}</h3>
+                                {% if storeproduct.tag2 == true %}
+                                    <h3>#{{ storeproduct.tag2 }}</h3>
                                 {% endif %}
-                                {% if product.tag3 == true %}
-                                    <h3>#{{ product.tag3 }}</h3>
+                                {% if storeproduct.tag3 == true %}
+                                    <h3>#{{ storeproduct.tag3 }}</h3>
                                 {% endif %}
                             </div>
                         </div>

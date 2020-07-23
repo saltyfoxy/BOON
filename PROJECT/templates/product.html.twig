@@ -6,11 +6,37 @@
              class="card-product">
             <h2> {{ product.name }} </h2>
             <h2> {{ product.price }} </h2>
-            <img src="{{ product.picture1 }}" alt="imageCard" class="img-card-product">
-            <img src="{{ product.picture2 }}" alt="imageCard" class="img-card-product">
-            <img src="{{ product.picture3 }}" alt="imageCard" class="img-card-product">
-            <img src="{{ product.picture4 }}" alt="imageCard" class="img-card-product">
-            <img src="{{ product.picture5 }}" alt="imageCard" class="img-card-product">
+            <div id="show-{{ product.id }}" class="card-detail-column">
+                <div id="carousel" class="carousel slide carousel-fade">
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                        {% if product.picture1 == true %}
+                            <div class="item active">
+                                <img class="picture-detail-store" src="{{asset(product.picture1)}}" alt="First slide">
+                            </div>
+                        {% endif %}
+                        {% if product.picture2 == true %}
+                            <div class="item">
+                                <img class="picture-detail-store" src="{{asset(product.picture2) }}" alt="Second slide">
+                            </div>
+                        {% endif %}
+                        {% if product.picture3 == true %}
+                            <div class="item">
+                                <img class="picture-detail-store" src="{{asset(product.picture3) }}" alt="Third slide">
+                            </div>
+                        {% endif %}
+
+                        <!-- Controls -->
+                        <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
+                            <i class="fas fa-arrow-circle-left carousel-left"></i>
+                        </a>
+                        <a class="right carousel-control" href="#carousel" role="button" data-slide="next">
+                            <i class="fas fa-arrow-circle-right carousel-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
             <h2>{{ product.tags }}</h2>
         </div>
     </div>

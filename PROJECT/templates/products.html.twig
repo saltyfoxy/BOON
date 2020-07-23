@@ -1,5 +1,7 @@
 {% extends 'layout/base.html.twig' %}
 {% block body %}
+    <div class="div-body">
+    {% include 'layout/flash-notice.twig' %}
         <div class="column-products">
             <div class="row-products">
 
@@ -43,5 +45,6 @@
                 </div>
             {% endfor %}
         </div>
+    </div>
     </div>
 {% endblock %}

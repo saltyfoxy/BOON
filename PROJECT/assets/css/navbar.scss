@@ -4,7 +4,6 @@
   border-bottom: solid $primary-color 2px;
   width: 100%;
   background-color: $secondary-color;
-  position: absolute;
   z-index: 1000;
   top: 0;
   left: 0;
@@ -134,4 +133,8 @@
 
 .btn-inscription:hover {
   border: $primary-color solid 2px;
+}
+
+.active{
+  color:$tertiary-color !important;
 }
